@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            border: none;
+            margin: 10px;
+            padding: 10px;
+            background: #a50097;
+            color: white;
+            font-weight: bold;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+<div id="btns" style="position: fixed;top: 10px;height: 150px;">
+    <button onclick="openFile()">打开文件</button>
+</div>
+<!--<button onclick="showBySelect('中国')">中国</button>-->
+<!--<button onclick="showBySelect('广东')">广东</button>-->
+<!--<button onclick="showBySelect('湖北')">湖北</button>-->
+<div id="haha" style="font-size: large;margin-top: 150px"></div>
+</body>
+<script>
+    // 6
+    var colors = [
+        "#000",
+        "#f00",
+        "#0f0",
+        "#00f",
+        "#ffa81f",
+        "#f0f",
+        "#0ff",
+    ];
+    toSpan = function(content,colorInd) {
+        return `<span style="color:#fff;background:${colors[colorInd]}">${content}</span>`;
+    };
+
+    var dear = {
+        中国: [
+            // 确诊
+            [/现有确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/累计报告确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            // 治愈
+            [/治愈出院[0-9]+例/g,(content) => toSpan(content,1)],
+            [/治愈出院[0-9]+例/g,(content) => toSpan(content,1)],
+            [/累计治愈出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            [/累计治愈出院[0-9]+例/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/累计死亡病例[0-9]+例/g,(content) => toSpan(content,2)],
+            [/累计死亡[0-9]+例/g,(content) => toSpan(content,2)],
+            // 疑似
+            [/累计报告疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+            [/共有疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+            [/现有疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+        ],
+        "湖北": [
+            // 确诊
+            [/累计报告新型冠状病毒感染的肺炎病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/湖北省累计报告新型冠状病毒肺炎病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/湖北省累计报告新冠肺炎病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/湖北省累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            // 治愈
+            [/全省累计治愈出院[0-9]+例/g,(content) => toSpan(content,1)],
+            [/已治愈出院[0-9]+例/g,(content) => toSpan(content,1)],
+            [/出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            [/新增出院[0-9]+例/g,(content) => toSpan(content,4)],//新增
+            // 死亡
+            [/死亡[0-9]+例/g,(content) => toSpan(content,2)],
+            [/全省累计病亡[0-9]+例/g,(content) => toSpan(content,2)],
+            [/死亡病例52例[0-9]+例/g,(content) => toSpan(content,2)],
+            [/全省新增病亡[0-9]+例/g,(content) => toSpan(content,6)],//新增
+            // 疑似
+            [/疑似病例[0-9]+人/g,(content) => toSpan(content,3)],//
+
+        ],
+        "广东": [
+            // 确诊
+            [/累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/全省累计报告新冠肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/累计出院[0-9]+例/g,(content) => toSpan(content,1)],
+            [/出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/累计死亡[0-9]+例/g,(content) => toSpan(content,2)],
+            // 疑似
+            [/[0-9]+例疑似病例/g,(content) => toSpan(content,3)],
+            [/疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+        ],
+        "深圳": [
+            //确诊
+            [/确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/累计出院[0-9]+例/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/无死亡病例/g,(content) => toSpan(content,2)],
+            // 疑似
+
+        ],
+        "广州": [
+            // 确诊
+            [/广州确诊病例共[0-9]+例/g,(content) => toSpan(content,0)],
+            [/广州市累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/广州市累计报告新冠肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            [/已治愈出院[0-9]+例/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/无死亡病例/g,(content) => toSpan(content,2)],
+            // 疑似
+            [/[0-9]+人转为疑似病例/g,(content) => toSpan(content,3)],
+            [/现有疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+        ],
+        "浙江省": [
+            // 确诊
+            [/浙江省累计报告新型冠状病毒肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/浙江省累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            [/累计出院[0-9]+例/g,(content) => toSpan(content,1)],
+        ],
+        "河南": [
+            // 确诊
+            [/全省累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/全省累计报告新型冠状病毒肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/累计治愈病例[0-9]+例/g,(content) => toSpan(content,1)],
+            [/新增出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/累计死亡病例[0-9]+例/g,(content) => toSpan(content,2)],
+            // 疑似
+            [/诊断为疑似[0-9]+人/g,(content) => toSpan(content,3)],
+
+        ],
+        "安徽": [
+            // 确诊
+            [/安徽省累计报告确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/全省累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/安徽省累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/累计治愈出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            //死亡
+            [/无死亡病例/g,(content) => toSpan(content,2)],
+            [/累计死亡病例[0-9]+例/g,(content) => toSpan(content,2)],
+            //疑似
+            [/新增疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+        ],
+        "北京": [
+            // 确诊
+            [/我市共确诊[0-9]+例/g,(content) => toSpan(content,0)],
+            [/本市累计确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/本市累计确诊[0-9]+例/g,(content) => toSpan(content,0)],
+            [/确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/出院[0-9]+例/g,(content) => toSpan(content,1)],
+            [/我市已累计出院[0-9]+人/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/死亡[0-9]+例/g,(content) => toSpan(content,2)],
+            //疑似
+            [/本市累计疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+            [/现有疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+        ],
+        "上海": [
+            // 确诊
+            [/累计发现确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/发现确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/[0-9]+例治愈出院/g,(content) => toSpan(content,1)],
+            [/[0-9]+例出院/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/[0-9]+例死亡/g,(content) => toSpan(content,2)],
+            //疑似
+            [/另有[0-9]+例疑似病例正在排查中/g,(content) => toSpan(content,3)],
+            [/尚有[0-9]+例疑似病例正在排查中/g,(content) => toSpan(content,3)],
+        ],
+        "湖南": [
+            // 确诊
+            [/湖南省累计报告新型冠状病毒感染的肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            [/湖南省累计报告新型冠状病毒肺炎确诊病例[0-9]+例/g,(content) => toSpan(content,0)],
+            //治愈
+            [/出院病例[0-9]+例/g,(content) => toSpan(content,1)],
+            // 死亡
+            [/死亡病例[0-9]+例/g,(content) => toSpan(content,2)],
+            //疑似
+            [/疑似病例[0-9]例/g,(content) => toSpan(content,3)],
+        ]
+    };
+
+    var curFile = '';
+    String.prototype.showInDon = function(id) {
+        if (!id) {
+            document.body.style.fontSize = "large"
+        }
+        let onlyJS = /^[a-zA-Z0-9_=+*/\\)( \[\];&|^.<>{}'"!:$`]+$/;
+        (id ? document.getElementById(id) : document.body).innerHTML = this.split(/[\r\n]/)
+            .map(_ => {
+                if (_.trim() === ">1") {
+                    return '<hr/>'
+                } else if (_.trim().startsWith("http://") || _.trim().startsWith("https://")) {
+                    return `<a target="_blank" href="${_}">新数据来这里取啊</a>`
+                } else if (Number.isNaN(parseFloat(_.trim()))) {
+                    if (onlyJS.test(_.trim())) {
+                        return `<p style="font-size: small">${_}</p>`;
+                    } else {
+                        return `<p>${_}</p>`;
+                    }
+                } else {
+                    _ = _.trim();
+                    if (_[1] === "." || _[2] === ".") {
+                        return `<h2>${_}</h2>`
+                    } else {
+                        return `<p>${_}</p>`;
+                    }
+                }
+            }).join('\r\n');
+    };
+    window.onload = function () {
+        for (let i in dear) {
+            btns.innerHTML += `<button onclick="showBySelect('${i}')">${i}</button>`;
+        }
+    };
+    function showBySelect(tar) {
+        if (tar in dear) {
+            curFile = `txts/${tar}.txt`;
+            fetch(curFile)
+                .then(_ => _.text())
+                .then(tmp => {
+                    dear[tar].forEach(rpl => {
+                        tmp = tmp.replace(rpl[0],rpl[1]);
+                    });
+                    tmp.showInDon('haha');
+                });
+        }
+    }
+    function openFile() {
+        if (curFile) {
+            fetch('/open/' + curFile)
+        }
+    }
+</script>
+</html>

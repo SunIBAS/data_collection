@@ -1,0 +1,4 @@
+flag,area,confirmed,suspected,cured,dead
+420000,湖北省,41,0,12,2
+420100,武汉市,41,0,12,2
+000000,全国,41,0,12,2

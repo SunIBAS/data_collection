@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--<script src="https://cdn.bootcss.com/leaflet/1.5.1/leaflet-src.js"></script>-->
+    <link rel="stylesheet" href="./leaflet@1.6.0/leaflet.css"/>
+    <script src="./leaflet@1.6.0/leaflet.js"></script>
+    <style>
+        #mapid,body {
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+        #mapid {
+            height: 100vh;
+            width: 100vw;
+        }
+        #label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 150px;
+            z-index: 10000;
+            background: #03A9F4;
+            padding: 5px;
+        }
+        .label {
+            width: 100%;
+            height: 30px;
+        }
+        .label-color {
+            width: 20px;height: 20px;background: #800026;display: inline-block;float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="time" style="position: absolute;
+    font-size: xx-large;
+    top: 200px;
+    left: calc(50% - 125px);
+    z-index: 1000;
+    background: white;">时间</div>
+<div id="mapid"></div>
+<div id="label">
+    <div class="label">
+        <div style="background: #720026;" class="label-color"></div><div style="display: inline-block;"> > 10000</div>
+    </div>
+    <div class="label">
+        <div style="background: #ff0000;" class="label-color"></div><div style="display: inline-block;"> 1000 ~ 9999</div>
+    </div>
+    <div class="label">
+        <div style="background: #ff6e00;" class="label-color"></div><div style="display: inline-block;"> 100 ~ 999</div>
+    </div>
+    <div class="label">
+        <div style="background: #ffa400;" class="label-color"></div><div style="display: inline-block;"> 10 ~ 99 </div>
+    </div>
+    <div class="label">
+        <div style="background: #faff62;" class="label-color"></div><div style="display: inline-block;"> 1 ~ 9 </div>
+    </div>
+    <div class="label">
+        <div style="background: #11ff7e;" class="label-color"></div><div style="display: inline-block;"> 0 </div>
+    </div>
+</div>
+</body>
+<script>
+    reflesh = () => {
+        toLoadMap();
+    };
+    window.onload = function () {
+        toLoadMap();
+    };
+    function toLoadMap() {
+        let mapid = document.getElementById('mapid');
+        document.body.removeChild(mapid);
+        mapid = document.createElement("div");
+        mapid.id = 'mapid';
+        document.body.appendChild(mapid);
+        let mymap = L.map('mapid',{
+            zoomControl: false,
+            attributionControl: false,
+        }).setView([37.195,104.545],5);
+        window.mymap = mymap;
+        function getColor(d) {
+            if (d === 0 || d === "0") {
+                d = '';
+            } else {
+                d = d + '';
+            }
+            return d.length === 5 ? '#720026' :
+                d.length === 4  ? '#ff0000' :
+                    d.length === 3   ? '#ff6e00' :
+                        d.length === 2   ? '#ffa400' :
+                            d.length === 1   ? '#faff62' :
+                                '#11ff7e';
+        }
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.caseList),
+                weight: 2,
+                opacity: 1,
+                color: 'white',
+                dashArray: '3',
+                fillOpacity: 0.7
+            };
+        }
+        function hoverToShowTooltip(e) {
+            (window.popup || {remove(){}}).remove();
+            let prop = e.target.feature.properties;
+            let center = prop.center;
+            window.popup = L.popup()
+                .setLatLng([center[1],center[0]])
+                .setContent(`<p>${prop.name}<br/>${prop.caseList} 例</p>`)
+                .addTo(mymap);
+        }
+        L.tileLayer('http://mt0.google.cn/vt/lyrs=m@160000000&hl=zh-CN&gl=CN&src=app&y={y}&x={x}&z={z}&s=Ga', {
+            attribution: 'google map',
+            maxZoom: 18,
+        }).addTo(mymap);
+        fetch('api/files')
+            .then(_ => _.text())
+            .then(JSON.parse)
+            .then(json => {
+                // 只要 1-18 开始的数据，因为前面都是武汉一个城市
+                return json.filter((_,ind) => ind >= 48);
+            })
+            .then(json => {
+                window.task = json.length;
+                window.id = setInterval(function () {
+                    if (!window.task) {
+                        console.log("加载完成");
+                        clearInterval(window.id);
+                        window.id = -1;
+                        autoRun();
+                    }
+                },200);
+                window.ret = {};
+                window.json = json;
+                window.run = false;
+                json.forEach(j => {
+                    (function f(j) {
+                        fetch(`out/${j}`)
+                            .then(_ => _.text())
+                            .then(JSON.parse)
+                            .then(geojson => {
+                                window.task--;
+                                window.ret[j] = L.geoJSON(geojson,{
+                                    style: style,
+                                }); //.addTo(mymap);
+                            });
+                    }).bind(null,j)();
+                });
+            });
+    }
+    function autoRun() {
+        if (!window.run && window.id === -1) {
+            window.run = true;
+            window.ind = 0;
+            window.id = setInterval(function () {
+                document.getElementById('time').innerText = "时间 " + window.json[window.ind];
+                if (window.ind) {
+                    mymap.removeLayer(window.ret[window.json[window.ind - 1]]);
+                }
+                mymap.addLayer(window.ret[window.json[window.ind]]);
+                window.ind++;
+                if (window.ind === window.json.length) {
+                    clearInterval(window.id);
+                    window.id = -1;
+                    window.ind = 0;
+                    window.run = false;
+                }
+            },1000);
+        }
+    }
+</script>
+</html>

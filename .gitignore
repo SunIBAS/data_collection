@@ -1,0 +1,12 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+2019-nCoV-Datas/.vscode/
+2019-nCoV-Datas/.idea/
+2019-nCoV-Datas/.venv/
+2019-nCoV-Datas/.env
+2019-nCoV-Datas/_myAuto.bat
+*.swp
+auth/
+*.text.js
+test/
+*.xlsx
+
