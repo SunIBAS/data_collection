@@ -33,7 +33,7 @@
         "#00f",
         "#ffa81f",
         "#f0f",
-        "#0ff",
+        "#0081ff",
     ];
     toSpan = function(content,colorInd) {
         return `<span style="color:#fff;background:${colors[colorInd]}">${content}</span>`;
@@ -90,6 +90,20 @@
             // 疑似
             [/[0-9]+例疑似病例/g,(content) => toSpan(content,3)],
             [/疑似病例[0-9]+例/g,(content) => toSpan(content,3)],
+            // 密切
+            [/密切接触者[0-9]+人/g,(content) => toSpan(content,4)],
+            [/有[0-9]+名密切接触者/g,(content) => toSpan(content,4)],
+            //临床
+            [/临床/g,(content) => toSpan(content,5)],
+            // 重症
+            // 危重
+            [/重症[0-9]+例/g,(content) => toSpan(content,6)],
+            [/重症病例[0-9]+例/g,(content) => toSpan(content,6)],
+            [/危重[0-9]+例/g,(content) => toSpan(content,6)],
+            [/危重病例[0-9]+例/g,(content) => toSpan(content,6)],
+            [/危重型[0-9]+例/g,(content) => toSpan(content,6)],
+            [/重型[0-9]+例/g,(content) => toSpan(content,6)],
+
         ],
         "深圳": [
             //确诊
@@ -99,7 +113,6 @@
             // 死亡
             [/无死亡病例/g,(content) => toSpan(content,2)],
             // 疑似
-
         ],
         "广州": [
             // 确诊

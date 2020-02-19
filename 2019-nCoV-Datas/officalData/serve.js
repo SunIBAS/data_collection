@@ -47,7 +47,8 @@ server.on('request',function (req,res) {
     }
 });
 
-
+console.log(`basePath : ${basePath}`);
+console.log(`process.cwd : ${process.cwd()}`);
 server.listen(port,function () {
     console.log('server run in port : ' + port);
 });

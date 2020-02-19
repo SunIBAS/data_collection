@@ -5,6 +5,6 @@ node getChinaChange.js
 :: node Iwant/getIwant.js
 node extend/web/makeOneMapJson.js
 
-git add *
-git commit -m"%date% %time% update data"
-git push
+::git add *
+::git commit -m"%date% %time% update data"
+::git push

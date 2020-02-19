@@ -549,14 +549,30 @@
 		"suspect": "7264",
 		"dead": "1772",
 		"heal": "10853",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "10644",
+		"now_confrim": "58010",
+		"ind": "02016"
+	},
+	{
+		"date": "02/17",
+		"confirm": "72528",
+		"suspect": "6242",
+		"dead": "1870",
+		"heal": "12561",
 		"confirm_cuts": "",
 		"suspect_cuts": "",
 		"dead_cuts": "",
 		"heal_cuts": "",
-		"now_confrim": "58010",
-		"now_severe": "10644",
+		"now_confrim": "58097",
+		"now_severe": "11741",
 		"now_confrim_cuts": "",
 		"now_severe_cuts": "",
-		"ind": "02016"
+		"ind": "02017"
 	}
 ]
