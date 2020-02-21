@@ -93,6 +93,7 @@
             // 密切
             [/密切接触者[0-9]+人/g,(content) => toSpan(content,4)],
             [/有[0-9]+名密切接触者/g,(content) => toSpan(content,4)],
+            [/有[0-9]+ 名密切接触者/g,(content) => toSpan(content,4)],
             //临床
             [/临床/g,(content) => toSpan(content,5)],
             // 重症

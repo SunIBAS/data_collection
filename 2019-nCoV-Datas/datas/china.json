@@ -124,7 +124,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": null,
-		"now_confrim": null,
+		"now_confrim": "291",
 		"ind": "01020"
 	},
 	{
@@ -140,12 +140,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": null,
-		"now_confrim": null,
+		"now_confrim": "431",
 		"ind": "01021"
 	},
 	{
 		"date": "01/22",
-		"confirm": "571",
+		"confirm": "574",
 		"suspect": "393",
 		"dead": "17",
 		"heal": "25",
@@ -156,12 +156,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": null,
-		"now_confrim": null,
+		"now_confrim": "557",
 		"ind": "01022"
 	},
 	{
 		"date": "01/23",
-		"confirm": "830",
+		"confirm": "835",
 		"suspect": "1072",
 		"dead": "25",
 		"heal": "34",
@@ -172,12 +172,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": null,
-		"now_confrim": null,
+		"now_confrim": "776",
 		"ind": "01023"
 	},
 	{
 		"date": "01/24",
-		"confirm": "1287",
+		"confirm": "1297",
 		"suspect": "1965",
 		"dead": "41",
 		"heal": "38",
@@ -188,12 +188,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": null,
-		"now_confrim": null,
+		"now_confrim": "1218",
 		"ind": "01024"
 	},
 	{
 		"date": "01/25",
-		"confirm": "1975",
+		"confirm": "1985",
 		"suspect": "2684",
 		"dead": "56",
 		"heal": "49",
@@ -204,12 +204,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "324",
-		"now_confrim": "1870",
+		"now_confrim": "1880",
 		"ind": "01025"
 	},
 	{
 		"date": "01/26",
-		"confirm": "2744",
+		"confirm": "2761",
 		"suspect": "5794",
 		"dead": "80",
 		"heal": "51",
@@ -220,12 +220,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "461",
-		"now_confrim": "2613",
+		"now_confrim": "2630",
 		"ind": "01026"
 	},
 	{
 		"date": "01/27",
-		"confirm": "4515",
+		"confirm": "4535",
 		"suspect": "6973",
 		"dead": "106",
 		"heal": "60",
@@ -236,12 +236,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "976",
-		"now_confrim": "4349",
+		"now_confrim": "4369",
 		"ind": "01027"
 	},
 	{
 		"date": "01/28",
-		"confirm": "5974",
+		"confirm": "5997",
 		"suspect": "9239",
 		"dead": "132",
 		"heal": "103",
@@ -252,12 +252,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1239",
-		"now_confrim": "5739",
+		"now_confrim": "5762",
 		"ind": "01028"
 	},
 	{
 		"date": "01/29",
-		"confirm": "7711",
+		"confirm": "7736",
 		"suspect": "12167",
 		"dead": "170",
 		"heal": "124",
@@ -268,12 +268,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1370",
-		"now_confrim": "7417",
+		"now_confrim": "7442",
 		"ind": "01029"
 	},
 	{
 		"date": "01/30",
-		"confirm": "9692",
+		"confirm": "9720",
 		"suspect": "15238",
 		"dead": "213",
 		"heal": "171",
@@ -284,12 +284,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1527",
-		"now_confrim": "9308",
+		"now_confrim": "9336",
 		"ind": "01030"
 	},
 	{
 		"date": "01/31",
-		"confirm": "11791",
+		"confirm": "11821",
 		"suspect": "17988",
 		"dead": "259",
 		"heal": "243",
@@ -300,12 +300,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "1795",
-		"now_confrim": "11289",
+		"now_confrim": "11319",
 		"ind": "01031"
 	},
 	{
 		"date": "02/01",
-		"confirm": "14380",
+		"confirm": "14411",
 		"suspect": "19544",
 		"dead": "304",
 		"heal": "328",
@@ -316,12 +316,12 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "2110",
-		"now_confrim": "13748",
+		"now_confrim": "13779",
 		"ind": "02001"
 	},
 	{
 		"date": "02/02",
-		"confirm": "17236",
+		"confirm": "17238",
 		"suspect": "21558",
 		"dead": "361",
 		"heal": "475",
@@ -332,7 +332,7 @@
 		"now_confrim_cuts": null,
 		"now_severe_cuts": null,
 		"now_severe": "2296",
-		"now_confrim": "16400",
+		"now_confrim": "16402",
 		"ind": "02002"
 	},
 	{
@@ -540,7 +540,7 @@
 		"now_confrim_cuts": "",
 		"now_severe_cuts": "",
 		"now_severe": "11272",
-		"now_confrim": "57492",
+		"now_confrim": "57493",
 		"ind": "02015"
 	},
 	{
@@ -565,14 +565,62 @@
 		"suspect": "6242",
 		"dead": "1870",
 		"heal": "12561",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "11741",
+		"now_confrim": "58097",
+		"ind": "02017"
+	},
+	{
+		"date": "02/18",
+		"confirm": "74279",
+		"suspect": "5248",
+		"dead": "2006",
+		"heal": "14387",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "3",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "11977",
+		"now_confrim": "57886",
+		"ind": "02018"
+	},
+	{
+		"date": "02/19",
+		"confirm": "74675",
+		"suspect": "4922",
+		"dead": "2121",
+		"heal": "16168",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "11864",
+		"now_confrim": "56386",
+		"ind": "02019"
+	},
+	{
+		"date": "02/20",
+		"confirm": "75567",
+		"suspect": "5206",
+		"dead": "2239",
+		"heal": "18277",
 		"confirm_cuts": "",
 		"suspect_cuts": "",
 		"dead_cuts": "",
 		"heal_cuts": "",
-		"now_confrim": "58097",
-		"now_severe": "11741",
+		"now_confrim": "55051",
+		"now_severe": "11633",
 		"now_confrim_cuts": "",
 		"now_severe_cuts": "",
-		"ind": "02017"
+		"ind": "02020"
 	}
 ]

@@ -16,6 +16,10 @@ const {
 const {
     code2All
 } = require('./../_utils/cityCode');
+const {
+    qianxiBaiduAdd,
+    tempPath
+} = require('./../_utils/basePath');
 
 const cityCode = ArrayToNext(codes);
 let nextDay;// = getFromDay(2020,1,2,false,true);
@@ -30,7 +34,7 @@ const dtType = function (code) {
     } else if (code.substring(2) === "0000") {
         return 'province';
     } else {
-        return "country";
+        return "city";
     }
 };
 let nextReqUrlType = ArrayToNext(['city','province']);
@@ -50,13 +54,13 @@ let nextCode = function (nd) {
                 data = data.substring('ibas('.length,data.indexOf(')'));
                 // console.log(data);
                 // console.log(JSON.parse(data));
-                fs.writeFileSync(`e:/temp/${nd}-${city}-${reqUrlType}-move-out.json`,data);
+                fs.writeFileSync(`${tempPath}/${nd}-${city}-${reqUrlType}-move-out.json`,data);
                 allData.push(`"${city}":${data}`);
                 nextCode(nd);
             })
             .catch(console.log);
     } else {
-        fs.writeFileSync(`./迁出地数据/${nd}-${reqUrlType}.json`,`{${allData.join(',')}}`,'utf-8');
+        fs.writeFileSync(qianxiBaiduAdd(`迁出地数据/${nd}-${reqUrlType}.json`),`{${allData.join(',')}}`,'utf-8');
         allData = [];
         console.log(`date : ${nd} end`);
         next();
@@ -75,28 +79,45 @@ let next = function () {
     }
 };
 
-// nextReqUrlType.resetArray(['province']);
-nextReqUrlType.resetArray(['city']);
-// nextReqUrlType.resetArray(['city','province']);
 let d = new Date();
-let todayOnly = () => {
+let predayOnly = () => {
+    d.setTime(d.getTime() - 24 * 3600 * 1000);
     return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
 };
 let OneDayOnly = (function (y,m,d,oy,om,od){
     return () => {
         return getFromDay(y,m,d,false,true,oy || y,om||m,od||d);
     }
-})(2020,1,13,2020,1,13);
-
+});//(2020,2,19,2020,2,19);
+let creatDayNext = function() {};
+nextReqUrlType.reset(['city','province']);
+let totalCb = () => {};
 let nextDtType = function () {
     reqUrlType = nextReqUrlType.next();
     if (reqUrlType) {
         console.log(`begin ${reqUrlType}`);
-        nextDay = OneDayOnly();
+        nextDay = creatDayNext();
         next();
     } else {
         console.log(`all done`);
+        totalCb();
     }
 };
 
-nextDtType();
+
+/** 只下载前一天的数据 **/
+function callPreDay(cb) {
+    creatDayNext = predayOnly;
+    totalCb = cb;
+    nextDtType();
+}
+function callDayRange(cb,y,m,d,ey,em,ed) {
+    creatDayNext = OneDayOnly(y,m,d,ey,em,ed);
+    totalCb = cb;
+    nextCode();
+}
+
+module.exports = {
+    callDayRange,
+    callPreDay
+};

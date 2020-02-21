@@ -16,6 +16,10 @@ const {
 const {
     code2All
 } = require('./../_utils/cityCode');
+const {
+    qianxiBaiduAdd,
+    tempPath
+} = require('./../_utils/basePath');
 
 const cityCode = ArrayToNext(codes);
 let nextDay;// = getFromDay(2020,1,2,false,true);
@@ -26,11 +30,12 @@ const dtType = function (code) {
     } else if (code.substring(2) === "0000") {
         return 'province';
     } else {
-        return "country";
+        return "city";
     }
 };
 let nextReqUrlType = ArrayToNext(['move_in','move_out']);
 let reqUrlType = '';
+let todayYMD = '';
 
 let nextCode = function () {
     let city = cityCode.next();
@@ -45,14 +50,14 @@ let nextCode = function () {
                 data = data.substring('ibas('.length,data.indexOf(')'));
                 // console.log(data);
                 // console.log(JSON.parse(data));
-                fs.writeFileSync(`e:/temp/${city}-${reqUrlType}.json`,data);
+                fs.writeFileSync(`${tempPath}/${city}-${reqUrlType}.json`,data);
                 allData.push(`"${city}":${data}`);
                 nextCode();
             })
             .catch(console.log);
     } else {
-        fs.writeFileSync(`e:/temp1/${reqUrlType}.json`,`{${allData.join(',')}}`,'utf-8');
-        allData = [];
+        fs.writeFileSync(`${qianxiBaiduAdd("迁徙趋势/" + reqUrlType + '-' + todayYMD + '.json')}`,`{${allData.join(',')}}`,'utf-8');
+        // allData = [];
         console.log(`date : ${reqUrlType} end`);
         nextDtType();
     }
@@ -60,14 +65,17 @@ let nextCode = function () {
 
 // only today
 let d = new Date();
+todayYMD = (1900 + d.getYear()) + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 AutoNextDtType = true;
 // nextReqUrlType.resetArray(['move_out']);
-nextReqUrlType.resetArray(['move_in']);
-// nextReqUrlType.resetArray(['move_in','move_out']);
+// nextReqUrlType.resetArray(['move_in']);
+nextReqUrlType.resetArray(['move_in','move_out']);
 let onlyToday = function () {
     return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
 };
+let allCb = () => {};
 let nextDtType = function () {
+    allData = [];
     reqUrlType = nextReqUrlType.next();
     if (reqUrlType) {
         console.log(`begin ${reqUrlType}`);
@@ -76,7 +84,14 @@ let nextDtType = function () {
         nextCode();
     } else {
         console.log(`all done`);
+        allCb();
     }
 };
 
-nextDtType();
+function autoRun(cb) {
+    nextDtType();
+    allCb = cb;
+}
+
+
+module.exports = {autoRun};

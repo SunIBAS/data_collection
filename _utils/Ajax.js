@@ -28,6 +28,33 @@ const get = function(url,option) {
     })
 };
 
+function DownloadFile(filePath,url,cb) {
+    console.log(`to download file >>> ${filePath}`);
+    const downFile = (url) => {
+        return new Promise(function (succ,fail) {
+            http.get(url,(resp) => {
+                let data = [];
+                resp.on('data',(chunk) => {
+                    data.push(chunk);
+                });
+                resp.on('end',() => {
+                    succ(data);
+                });
+                resp.on("error",err => {
+                    fail(err);
+                });
+            });
+        });
+    };
+    downFile(url)
+        .then(data => {
+            let ws = fs.createWriteStream(filePath);
+            data.forEach(ws.write.bind(ws));
+            ws.end();
+        })
+        .then(cb);
+}
+
 const getString = function(obj) {
     let str = [];
     for (let i in obj) {
@@ -60,5 +87,6 @@ const formatParam = function(str) {
 module.exports = {
     getString,
     formatParam,
-    get
+    get,
+    DownloadFile
 };
