@@ -55,7 +55,15 @@ let nextCode = function (nd) {
                 // console.log(data);
                 // console.log(JSON.parse(data));
                 fs.writeFileSync(`${tempPath}/${nd}-${city}-${reqUrlType}-move-in.json`,data);
-                allData.push(`"${city}":${data}`);
+                // allData.push(`"${city}":${data}`);
+                if (data) {
+                    allData.push(`"${city}":${data}`);
+                } else {
+                    console.log(`require fail and then begin retry ${city}`);
+                    cityCode.preMove(function (cc,pMove,move) {
+                        console.log(`Retry ${pMove.retryTime} times,error is continue code is ${cc}`);
+                    });
+                }
                 nextCode(nd);
             })
             .catch(console.log);
@@ -79,10 +87,10 @@ let next = function () {
     }
 };
 
-let d = new Date();
 let predayOnly = () => {
+    let d = new Date();
     d.setTime(d.getTime() - 24 * 3600 * 1000);
-    return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
+    return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true,1900 + d.getYear(),d.getMonth() + 1,d.getDate());
 };
 let OneDayOnly = (function (y,m,d,oy,om,od){
     return () => {
@@ -97,6 +105,7 @@ let nextDtType = function () {
     if (reqUrlType) {
         console.log(`begin ${reqUrlType}`);
         nextDay = creatDayNext();
+        console.log(`require 迁入地爬取`);
         next();
     } else {
         console.log(`all done`);

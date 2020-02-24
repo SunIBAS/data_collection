@@ -234,9 +234,21 @@
     };
     window.onload = function () {
         for (let i in dear) {
-            btns.innerHTML += `<button onclick="showBySelect('${i}')">${i}</button>`;
+            btns.innerHTML += `<button tar="${i}" onmousedown="btnMD()">${i}</button>`;
         }
     };
+    function btnMD() {
+        let e = event;
+        let tar = e.target.getAttribute('tar');
+        if (e.which == 1) {
+            showBySelect(tar);
+        } else if (e.which) {
+            curFile = `txts/${tar}.txt`;
+            openFile();
+            showBySelect(tar);
+            return false;
+        }
+    }
     function showBySelect(tar) {
         if (tar in dear) {
             curFile = `txts/${tar}.txt`;

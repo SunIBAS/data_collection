@@ -35,7 +35,6 @@ const dtType = function (code) {
 };
 let nextReqUrlType = ArrayToNext(['move_in','move_out']);
 let reqUrlType = '';
-let todayYMD = '';
 
 let nextCode = function () {
     let city = cityCode.next();
@@ -51,12 +50,18 @@ let nextCode = function () {
                 // console.log(data);
                 // console.log(JSON.parse(data));
                 fs.writeFileSync(`${tempPath}/${city}-${reqUrlType}.json`,data);
-                allData.push(`"${city}":${data}`);
+                if (data) {
+                    allData.push(`"${city}":${data}`);
+                } else {
+                    cityCode.preMove(function (cc,pMove,move) {
+                        console.log(`Retry ${pMove.retryTime} times,error is continue code is ${cc}`);
+                    });
+                }
                 nextCode();
             })
             .catch(console.log);
     } else {
-        fs.writeFileSync(`${qianxiBaiduAdd("迁徙趋势/" + reqUrlType + '-' + todayYMD + '.json')}`,`{${allData.join(',')}}`,'utf-8');
+        fs.writeFileSync(`${qianxiBaiduAdd("迁徙趋势/" + reqUrlType + '-' + nextDay + '.json')}`,`{${allData.join(',')}}`,'utf-8');
         // allData = [];
         console.log(`date : ${reqUrlType} end`);
         nextDtType();
@@ -65,22 +70,23 @@ let nextCode = function () {
 
 // only today
 let d = new Date();
-todayYMD = (1900 + d.getYear()) + '-' + (d.getMonth() + 1) + '-' + d.getDate();
 AutoNextDtType = true;
 // nextReqUrlType.resetArray(['move_out']);
 // nextReqUrlType.resetArray(['move_in']);
 nextReqUrlType.resetArray(['move_in','move_out']);
 let onlyToday = function () {
-    return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
+    let nd = getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
+    return nd();
 };
 let allCb = () => {};
+nextDay = onlyToday();
+console.log(nextDay);
 let nextDtType = function () {
     allData = [];
     reqUrlType = nextReqUrlType.next();
     if (reqUrlType) {
         console.log(`begin ${reqUrlType}`);
         cityCode.reset();
-        nextDay = onlyToday();//getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
         nextCode();
     } else {
         console.log(`all done`);
@@ -93,5 +99,6 @@ function autoRun(cb) {
     allCb = cb;
 }
 
-
-module.exports = {autoRun};
+module.exports = {
+    autoRun
+};

@@ -17,10 +17,16 @@ const {
     qianxiBaiduAdd,
     tempPath
 } = require('./../_utils/basePath');
+const {
+    getToday
+} = require('./../_utils/getDays');
 
-const cityCode = ArrayToNext(codes);
+let cityCode = ArrayToNext(codes);
 let allData = [];
 const dtType = function (code) {
+    if (code === "110000" || code === "120000" || code === "310000" || code === "500000") {
+        return "city";
+    }
     if (code == "0") {
         return 'country';
     } else if (code.substring(2) === "0000") {
@@ -47,7 +53,21 @@ let nextCode = function (nd) {
                 // console.log(data);
                 // console.log(JSON.parse(data));
                 fs.writeFileSync(`${tempPath}/${city}-${nd}-incity.json`,data);
-                allData.push(`"${city}":${data}`);
+                // allData.push(`"${city}":${data}`);
+                if (data) {
+                    if (JSON.parse(data).errno === 0) {
+                        allData.push(`"${city}":${data}`);
+                    } else {
+                        console.log(`${city} get errno is not zero`);
+                        cityCode.preMove(function (cc,pMove,move) {
+                            console.log(`Retry ${pMove.retryTime} times,error is continue code is ${cc}`);
+                        });
+                    }
+                } else {
+                    cityCode.preMove(function (cc,pMove,move) {
+                        console.log(`Retry ${pMove.retryTime} times,error is continue code is ${cc}`);
+                    });
+                }
                 nextCode(nd);
             })
             .catch(console.log);
@@ -60,12 +80,17 @@ let nextCode = function (nd) {
 };
 
 // only today
-let d = new Date();
-let today = (1900 + d.getYear()) + '' + (d.getMonth() + 1) + '' + d.getDate();
+let today = getToday();
 
 function autoRunCNCXQD(cb) {
     allCB = cb;
     nextCode(today);
 }
 
-module.exports = { autoRunCNCXQD };
+module.exports = {
+    autoRunCNCXQD,
+    getCodes(codes,cb) {
+        cityCode = ArrayToNext(codes);
+        autoRunCNCXQD(cb);
+    }
+};

@@ -70,7 +70,31 @@ const getFromDay = function(year,month,day,format,endInToday,endYear,endMonth,en
     }
 };
 
+let d = null;
+/**
+ * 从 days 天前开始 days 是一个整形数字
+ * */
+const DaysAgoBegin = function (days) {
+    days = parseInt(days);
+    if (Number.isNaN(days)) {
+        days = 0;
+    }
+    d = new Date();
+    d.setTime(d.getTime() - 24 * 3600 * 1000 * days);
+    return getFromDay(1900 + d.getYear(),
+        d.getMonth() + 1,
+        d.getDate(),false,true);
+};
+const TodayOnly = function() {
+    return DaysAgoBegin(0);
+};
+
 module.exports = {
     formatDate,
-    getFromDay
+    getFromDay,
+    DaysAgoBegin,
+    TodayOnly,
+    getToday() {
+        return formatDate(new Date(),false);
+    }
 };

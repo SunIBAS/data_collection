@@ -55,7 +55,14 @@ let nextCode = function (nd) {
                 // console.log(data);
                 // console.log(JSON.parse(data));
                 fs.writeFileSync(`${tempPath}/${nd}-${city}-${reqUrlType}-move-out.json`,data);
-                allData.push(`"${city}":${data}`);
+                //allData.push(`"${city}":${data}`);
+                if (data) {
+                    allData.push(`"${city}":${data}`);
+                } else {
+                    cityCode.preMove(function (cc,pMove,move) {
+                        console.log(`Retry ${pMove.retryTime} times,error is continue code is ${cc}`);
+                    });
+                }
                 nextCode(nd);
             })
             .catch(console.log);
@@ -79,10 +86,10 @@ let next = function () {
     }
 };
 
-let d = new Date();
 let predayOnly = () => {
+    let d = new Date();
     d.setTime(d.getTime() - 24 * 3600 * 1000);
-    return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true);
+    return getFromDay(1900 + d.getYear(),d.getMonth() + 1,d.getDate(),false,true,1900 + d.getYear(),d.getMonth() + 1,d.getDate());
 };
 let OneDayOnly = (function (y,m,d,oy,om,od){
     return () => {
