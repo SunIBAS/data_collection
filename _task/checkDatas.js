@@ -63,6 +63,11 @@ function checkQianxiBaidu() {
         compareFileStr =
             basePath.qianxiBaiduAdd(
                 `/迁徙趋势/${isMoveIn ? 'moveIn':'moveOut'}.json`);
+
+        console.log(`check and merge file`);
+        console.log(`\t\t${f}`);
+        console.log(`\t\t${compareFileStr}`);
+
         console.log(`Compare file :\n\t${f}\n\t\tand\n\t${compareFileStr}`);
         let tFile = require(f); // 今天的数据
         let pFile = require(compareFileStr); // 昨天的数据
@@ -97,9 +102,12 @@ function checkQianxiBaidu() {
         let pp4file = basePath.qianxiBaiduAdd(`/城内出行强度/out.json`);
         let tp4 = require(tp4file);
         let pp4 = require(pp4file);
+        console.log(`check and merge file`);
+        console.log(`\t\t${tp4file}`);
+        console.log(`\t\t${pp4file}`);
         for (let i in tp4) {
-            if ((tp4[i].errno + '') !== 0) {
-                if ((pp4[i].errno + '') !== 0) {
+            if ((tp4[i].errno + '') !== '0') {
+                if ((pp4[i].errno + '') !== '0') {
                     console.log(`both file ${i} errno is not zero`);
                 } else {
                     haveError = true;
