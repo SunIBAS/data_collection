@@ -1,0 +1,946 @@
+[
+  {
+    "dbcode": "hgjd",
+    "id": "A0101",
+    "isParent": false,
+    "name": "指标#国民经济核算#国内生产总值(现价)",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0102",
+    "isParent": false,
+    "name": "指标#国民经济核算#国内生产总值(不变价)",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0103",
+    "isParent": false,
+    "name": "指标#国民经济核算#国内生产总值指数",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0104",
+    "isParent": false,
+    "name": "指标#国民经济核算#国内生产总值环比增长速度",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0105",
+    "isParent": false,
+    "name": "指标#国民经济核算#三大需求对国内生产总值增长的贡献率",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0106",
+    "isParent": false,
+    "name": "指标#国民经济核算#三次产业贡献率",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0107",
+    "isParent": false,
+    "name": "指标#国民经济核算#货物服务消费占比",
+    "pid": "A01",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0201",
+    "isParent": false,
+    "name": "指标#农业#农林牧渔业总产值",
+    "pid": "A02",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0401",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业总产值",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0402",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业签订合同情况",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0403",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业房屋建筑施工面积",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0404",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业个数、从业人数和劳动生产率",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0405",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业房屋建筑竣工面积",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0406",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业房屋建筑竣工价值",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0407",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业总收入",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0408",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业利润",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0409",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业费用情况",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040A",
+    "isParent": false,
+    "name": "指标#建筑业#建筑业企业资产负债情况",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040B",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业建筑业总产值",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040C",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业签订合同情况",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040D",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业房屋建筑施工面积",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040E",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业个数、从业人数和劳动生产率",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040F",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业房屋建筑竣工面积",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040G",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业房屋建筑竣工价值",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040H",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业总收入",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040I",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业利润",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040J",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业费用情况",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A040K",
+    "isParent": false,
+    "name": "指标#建筑业#国有及国有控股建筑业企业资产负债情况",
+    "pid": "A04",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0501",
+    "isParent": false,
+    "name": "指标#人民生活#居民收支基本情况(新口径)",
+    "pid": "A05",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0502",
+    "isParent": false,
+    "name": "指标#人民生活#城镇居民收支基本情况(新口径)",
+    "pid": "A05",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0503",
+    "isParent": false,
+    "name": "指标#人民生活#农村居民收支基本情况(新口径)",
+    "pid": "A05",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0511",
+    "isParent": false,
+    "name": "指标#人民生活#城镇居民家庭收支基本情况",
+    "pid": "A05",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0512",
+    "isParent": false,
+    "name": "指标#人民生活#农村居民家庭收支基本情况",
+    "pid": "A05",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0514",
+    "isParent": false,
+    "name": "指标#人民生活#外出务工",
+    "pid": "A05",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0601",
+    "isParent": false,
+    "name": "指标#价格指数#农产品生产者价格指数（上年同期=100）",
+    "pid": "A06",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0602",
+    "isParent": false,
+    "name": "指标#价格指数#固定资产投资价格指数_当季（上年同季=100）(-2018)",
+    "pid": "A06",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0603",
+    "isParent": false,
+    "name": "指标#价格指数#固定资产投资价格指数_累计值（上年同期=100）(-2018)",
+    "pid": "A06",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0604",
+    "isParent": false,
+    "name": "指标#价格指数#固定资产投资价格指数_当季（上年同季=100）(2019-)",
+    "pid": "A06",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0605",
+    "isParent": false,
+    "name": "指标#价格指数#固定资产投资价格指数_累计（上年同期=100）(2019-)",
+    "pid": "A06",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A0701",
+    "isParent": false,
+    "name": "指标#国内贸易#按零售业态分限额以上消费品零售额",
+    "pid": "A07",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030101",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#铁矿石原矿",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030102",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#原盐",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030103",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#成品糖",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030104",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#精制食用植物油",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030105",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#乳制品",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030106",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#白酒(折65度，商品量)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030107",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#啤酒",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030108",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#饮料",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030109",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#卷烟",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010A",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#纱",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010B",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#布",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010C",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#服装",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010D",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#棉布",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010E",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#棉混纺布(混纺交织布)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010F",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#化学纤维布(纯化纤布)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010G",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#毛机织物(呢绒)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010H",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#机制纸及纸板",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010I",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#硫酸(折100%)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010J",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#烧碱(折100%)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010K",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#纯碱(碳酸钠)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010L",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#碳化钙(电石，折300升/千克)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010M",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#乙烯",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010N",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#合成氨(无水氨)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010O",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#汽油",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010P",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#煤油",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010Q",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#柴油",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010R",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#农用氮磷钾化学肥料总计(折纯)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010S",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#氮肥(折含氮100%)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010T",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#磷肥(折五氧化二磷100%)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010U",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#化学农药原药(折有效成份100%)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010V",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#涂料",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010W",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#初级形态塑料",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010X",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#合成橡胶",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010Y",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#合成洗涤剂",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03010Z",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#化学药品原药",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030110",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#化学纤维",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030111",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#橡胶轮胎外胎",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030112",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#塑料制品",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030113",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#农用薄膜",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030114",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#水泥",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030115",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#平板玻璃",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030116",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#生铁",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030117",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#粗钢",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030118",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#钢材",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030119",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#盘条(线材)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011A",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#十种有色金属",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011B",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#氧化铝",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011C",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#原铝(电解铝)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011D",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#金属切削机床",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011E",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#挖掘机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011F",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#大型拖拉机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011G",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#中型拖拉机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011H",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#小型拖拉机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011I",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#汽车",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011J",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#轿车",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011K",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#运动型多用途用车(SUV)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011L",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#载货汽车",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011M",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#新能源汽车",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011N",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#摩托车",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011O",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#两轮脚踏自行车(自行车)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011P",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#民用钢质船舶",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011Q",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#发电机组(发电设备)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011R",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#家用洗衣机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011S",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#家用吸尘器",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011T",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#家用电冰箱",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011U",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#家用冷柜",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011V",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#家用电风扇",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011W",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#房间空气调节器",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011X",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#电子计算机整机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011Y",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#移动通信手持机(手机)",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A03011Z",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#吸排油烟机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030120",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#电饭锅",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030121",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#微型计算机设备",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030122",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#彩色电视机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030123",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#集成电路",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030124",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#数字激光音视盘机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030125",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#组合音响",
+    "pid": "A0301",
+    "wdcode": "zb"
+  },
+  {
+    "dbcode": "hgjd",
+    "id": "A030126",
+    "isParent": false,
+    "name": "指标#工业#主要工业产品的销售与库存#照相机",
+    "pid": "A0301",
+    "wdcode": "zb"
+  }
+]
