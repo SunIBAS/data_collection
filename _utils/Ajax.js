@@ -1,6 +1,35 @@
 const https = require("https");
-const http = require("http");
-const qs = require("querystring")
+const http = require('http');
+const qs = require("querystring");
+const URL = require('url');
+
+const getRequestMethodAndFormOption = function (url,option,method) {
+    let surl = url.split('/').filter(_ => _);
+    let reqType = 'http';
+    if (surl[0] === 'http:') {} else if (surl[0] === 'https:') {
+        reqType = 'https';
+    }
+    let reqMethod;
+    if (reqType === 'http') {
+        reqMethod = http.request.bind(http);
+    } else {
+        reqMethod = https.request.bind(https);
+    }
+
+
+    let link = URL.parse(url);
+    let opt = {
+        hostname: link.hostname,
+        path: link.path,
+        method: (method || 'post'),
+        port: link.port,
+        ...(option || {})
+    };
+    return {
+        reqMethod,
+        opt
+    };
+};
 
 /**
  * @return Promise
@@ -26,6 +55,70 @@ const get = function(url,option) {
             resp.on("error",fcb);
         });
     })
+};
+const getAdv = function (url,option,setReq) {
+    setReq = setReq || (() => {});
+    let {
+        reqMethod,
+        opt
+    } = getRequestMethodAndFormOption(url,option,'get');
+    return new Promise(function (s,f) {
+        let req = reqMethod(opt,function (res) {
+            let datas = '';
+            res.setEncoding('utf8');
+            res.on('data', function (chunk) {
+                datas += chunk;
+            });
+            res.on('end',function () {
+                s({data: datas,req,res});
+            });
+            res.on('error',function (err) {
+                f(err);
+            });
+        });
+        setReq(req);
+        req.end();
+        req.on('error',f);
+    });
+};
+
+/**
+ * @return Promise
+ * */
+const post = function (url,option,data) {
+    let {
+        reqMethod,
+        opt
+    } = getRequestMethodAndFormOption(url,option);
+    return new Promise(function (s,f) {
+        let req = reqMethod(opt,function (res) {
+            let datas = '';
+            res.setEncoding('utf8');
+            res.on('data', function (chunk) {
+                datas += chunk;
+            });
+            res.on('end',function () {
+                s(datas);
+            });
+            res.on('error',function (err) {
+                f(err);
+            });
+        });
+        if (data) {
+            let reqStr = qs.stringify(data);
+            opt.headers = {
+                ...(opt.headers || {}),
+                'Content-Length': Buffer.byteLength(reqStr)
+            };
+            req.write(reqStr);
+        }
+        req.end();
+        req.on('error',f);
+    });
+};
+
+const defaultHeader = {
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
 };
 
 function DownloadFile(filePath,url,cb) {
@@ -58,7 +151,7 @@ function DownloadFile(filePath,url,cb) {
 const getString = function(obj) {
     let str = [];
     for (let i in obj) {
-        str.push(`${i}=${obj[i]}`);
+        str.push(`${i}=${encodeURI(obj[i])}`);
     }
     return str.join('&');
 };
@@ -85,8 +178,11 @@ const formatParam = function(str) {
 };
 
 module.exports = {
+    defaultHeader,
     getString,
     formatParam,
     get,
+    getAdv,
+    post,
     DownloadFile
 };

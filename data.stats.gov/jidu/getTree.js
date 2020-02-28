@@ -7,7 +7,7 @@ run(function (obj) {
     fs.writeFileSync("treeNode.json",JSON.stringify(obj),'utf-8');
 },{
     id: "zb",
-    dbcode: "hgyd",
+    dbcode: "hgjd",
     "isParent":true,
     wdcode: "zb",
     name: "指标",

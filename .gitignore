@@ -16,4 +16,5 @@ test/
 qianxi.baidu/temp
 qianxi.baidu/test
 qianxi.baidu/Iwant
+*.test.js
 

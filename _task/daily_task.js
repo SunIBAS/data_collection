@@ -24,8 +24,8 @@ function Task_QianxiBaidu(cb) {
     callPreDayMoveIn(function () {
         callPreDayMoveOut(function () {
             autoRun(function () {
-                cb();
-                // autoRunCNCXQD(cb);
+                // cb();
+                autoRunCNCXQD(cb);
             });
         })
     });

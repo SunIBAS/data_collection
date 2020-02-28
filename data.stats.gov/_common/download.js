@@ -7,7 +7,9 @@ const {
 const fs = require('fs');
 const baseUrl = 'http://data.stats.gov.cn/easyquery.htm?';
 
-let arr = ArrayToNext(require('./treeNode.json'));
+let arr;// = ArrayToNext(require('./treeNode.json'));
+let path;
+let saveTo = "";
 let curOne = "";
 let getReqParam = (obj,h1) => {
     let o = h1 ? {
@@ -16,7 +18,7 @@ let getReqParam = (obj,h1) => {
     return {
         ...o,
         m: 'QueryData',
-        dbcode: 'hgyd',
+        dbcode: obj.dbcode,
         rowcode: 'zb',
         colcode: 'sj',
         wds: '[]',
@@ -30,21 +32,22 @@ function down() {
     if (curOne) {
         out.push({
             url: baseUrl + getString(getReqParam(curOne,true)),
-            id: null
+            id: null,
         });
         out.push({
             url: baseUrl + getString(getReqParam({
                 wdcode: 'sj',
-                id: "LAST122"
+                id: "LAST122",
+                dbcode: curOne.dbcode
             })),
             id: curOne.id
         });
         down();
     } else {
         console.log('done');
-        fs.writeFileSync('app.asar/preload.js',
+        fs.writeFileSync(saveTo,
             `let fs = require('fs');
-let url = ${JSON.stringify(out)};
+window.url = ${JSON.stringify(out)};
 window.onload = function () {
     document.body.innerHTML = \`<style>
 * {
@@ -83,13 +86,20 @@ window.next = function() {
     document.getElementById('ifr').src = url[i++].url;
 };
 window.saveFile = function (obj,filename) {
-    console.log(\`save file \${filename}\`);
+    console.log(\`save file \${filename} i = \${i}\`);
     fs.writeFileSync(
-        'C:\\\\Users\\\\HUZENGYUN\\\\Documents\\\\git\\\\文档\\\\data_collection\\\\data.stats.gov\\\\monts\\\\datas\\\\' + filename + '.json',
+        '${path}' + filename + '.json',
         JSON.stringify(obj),'utf-8');
 };`,'utf-8');
     }
 }
 
-down();
-
+module.exports = {
+    run(treeNode,_path,_saveTo) {
+        // = ArrayToNext(require('./treeNode.json'));
+        arr = ArrayToNext(treeNode);
+        path = _path;
+        saveTo = _saveTo;
+        down();
+    }
+};

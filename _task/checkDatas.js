@@ -95,6 +95,7 @@ function checkQianxiBaidu() {
         }
     });
     (function () {
+        // return ;
         let haveError = false;
         // 获取今日份的文件
         let tp4file = path4(getToday());

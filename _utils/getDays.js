@@ -89,11 +89,33 @@ const TodayOnly = function() {
     return DaysAgoBegin(0);
 };
 
+// dstr = yyyyMMdd
+const getDayBetween = function(dstr1,dstr2) {
+    function strToDate(dstr) {
+        let d1 = new Date();
+        d1.setYear(dstr.substring(0,4));
+        d1.setMonth(parseInt(dstr.substring(4,6)) - 1);
+        d1.setDate(dstr.substring(6));
+        d1.setHours(12);
+        return d1;
+    }
+    let d1 = strToDate(dstr1 + '');
+    let d2 = strToDate(dstr2 + '');
+    let ds = 1000 * 3600 * 24;
+    return parseInt((d1.getTime() - d2.getTime()) / ds);
+};
+
+const getDayBetweenFromYearFirstDay = function(dstr) {
+    return getDayBetween(dstr,(dstr + '').substring(0,4) + '0101');
+};
+
 module.exports = {
     formatDate,
     getFromDay,
     DaysAgoBegin,
     TodayOnly,
+    getDayBetween,
+    getDayBetweenFromYearFirstDay,
     getToday() {
         return formatDate(new Date(),false);
     }

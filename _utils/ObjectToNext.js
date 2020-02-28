@@ -26,6 +26,7 @@ const ArrayToNext = function(_arr,retryTime) {
         },
         // 在发生不可避免的错误时，可能需要重新进行一次，
         // 该函数，提供一个迁移接口
+        // 回调接受三个参数 （当前的值，pMove对象，回调(前移)）
         preMove(cb) {
             cb = cb || (() => {});
             if (pMove.move && pMove.point === point) {
@@ -43,6 +44,14 @@ const ArrayToNext = function(_arr,retryTime) {
                 pMove.move = true;
                 point--;
             }
+        },
+        // 用于在执行过程中需要加入新的内容
+        append(_arr) {
+            arr = arr.concat(_arr);
+            len = arr.length;
+        },
+        status() {
+            console.log(`len = ${len} & point = ${point}`);
         }
     }
 };
