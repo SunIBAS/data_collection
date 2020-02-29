@@ -734,5 +734,21 @@
 		"now_severe": "7952",
 		"now_confrim": "40011",
 		"ind": "02027"
+	},
+	{
+		"date": "02/28",
+		"confirm": "79389",
+		"suspect": "1418",
+		"dead": "2838",
+		"heal": "39049",
+		"confirm_cuts": "",
+		"suspect_cuts": "",
+		"dead_cuts": "",
+		"heal_cuts": "",
+		"now_confrim": "37502",
+		"now_severe": "7664",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"ind": "02028"
 	}
 ]
