@@ -13,6 +13,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01013"
 	},
 	{
@@ -29,6 +30,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01014"
 	},
 	{
@@ -45,6 +47,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01015"
 	},
 	{
@@ -61,6 +64,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01016"
 	},
 	{
@@ -77,6 +81,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01017"
 	},
 	{
@@ -93,6 +98,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01018"
 	},
 	{
@@ -109,6 +115,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": null,
+		"importedCase": null,
 		"ind": "01019"
 	},
 	{
@@ -125,6 +132,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": "291",
+		"importedCase": null,
 		"ind": "01020"
 	},
 	{
@@ -141,6 +149,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": "431",
+		"importedCase": null,
 		"ind": "01021"
 	},
 	{
@@ -157,6 +166,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": "557",
+		"importedCase": null,
 		"ind": "01022"
 	},
 	{
@@ -173,6 +183,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": "776",
+		"importedCase": null,
 		"ind": "01023"
 	},
 	{
@@ -189,6 +200,7 @@
 		"now_severe_cuts": null,
 		"now_severe": null,
 		"now_confrim": "1218",
+		"importedCase": null,
 		"ind": "01024"
 	},
 	{
@@ -205,6 +217,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "324",
 		"now_confrim": "1880",
+		"importedCase": null,
 		"ind": "01025"
 	},
 	{
@@ -221,6 +234,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "461",
 		"now_confrim": "2630",
+		"importedCase": null,
 		"ind": "01026"
 	},
 	{
@@ -237,6 +251,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "976",
 		"now_confrim": "4369",
+		"importedCase": null,
 		"ind": "01027"
 	},
 	{
@@ -253,6 +268,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "1239",
 		"now_confrim": "5762",
+		"importedCase": null,
 		"ind": "01028"
 	},
 	{
@@ -269,6 +285,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "1370",
 		"now_confrim": "7442",
+		"importedCase": null,
 		"ind": "01029"
 	},
 	{
@@ -285,6 +302,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "1527",
 		"now_confrim": "9336",
+		"importedCase": null,
 		"ind": "01030"
 	},
 	{
@@ -301,6 +319,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "1795",
 		"now_confrim": "11319",
+		"importedCase": null,
 		"ind": "01031"
 	},
 	{
@@ -317,6 +336,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "2110",
 		"now_confrim": "13779",
+		"importedCase": null,
 		"ind": "02001"
 	},
 	{
@@ -333,6 +353,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "2296",
 		"now_confrim": "16402",
+		"importedCase": null,
 		"ind": "02002"
 	},
 	{
@@ -349,6 +370,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "2788",
 		"now_confrim": "19414",
+		"importedCase": null,
 		"ind": "02003"
 	},
 	{
@@ -365,6 +387,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "3219",
 		"now_confrim": "22980",
+		"importedCase": null,
 		"ind": "02004"
 	},
 	{
@@ -381,6 +404,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "3859",
 		"now_confrim": "26343",
+		"importedCase": null,
 		"ind": "02005"
 	},
 	{
@@ -397,6 +421,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "4821",
 		"now_confrim": "29032",
+		"importedCase": null,
 		"ind": "02006"
 	},
 	{
@@ -413,6 +438,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "6101",
 		"now_confrim": "31823",
+		"importedCase": null,
 		"ind": "02007"
 	},
 	{
@@ -429,6 +455,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "6188",
 		"now_confrim": "33788",
+		"importedCase": null,
 		"ind": "02008"
 	},
 	{
@@ -445,6 +472,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "6484",
 		"now_confrim": "36043",
+		"importedCase": null,
 		"ind": "02009"
 	},
 	{
@@ -461,6 +489,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "7333",
 		"now_confrim": "37693",
+		"importedCase": null,
 		"ind": "02010"
 	},
 	{
@@ -477,6 +506,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "8204",
 		"now_confrim": "38874",
+		"importedCase": null,
 		"ind": "02011"
 	},
 	{
@@ -493,6 +523,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "8030",
 		"now_confrim": "52599",
+		"importedCase": null,
 		"ind": "02012"
 	},
 	{
@@ -509,6 +540,7 @@
 		"now_severe_cuts": null,
 		"now_severe": "10204",
 		"now_confrim": "55823",
+		"importedCase": null,
 		"ind": "02013"
 	},
 	{
@@ -525,6 +557,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11053",
 		"now_confrim": "56951",
+		"importedCase": null,
 		"ind": "02014"
 	},
 	{
@@ -541,6 +574,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11272",
 		"now_confrim": "57493",
+		"importedCase": null,
 		"ind": "02015"
 	},
 	{
@@ -557,6 +591,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "10644",
 		"now_confrim": "58010",
+		"importedCase": null,
 		"ind": "02016"
 	},
 	{
@@ -573,6 +608,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11741",
 		"now_confrim": "58097",
+		"importedCase": null,
 		"ind": "02017"
 	},
 	{
@@ -589,6 +625,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11977",
 		"now_confrim": "57886",
+		"importedCase": null,
 		"ind": "02018"
 	},
 	{
@@ -605,6 +642,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11864",
 		"now_confrim": "56386",
+		"importedCase": null,
 		"ind": "02019"
 	},
 	{
@@ -621,6 +659,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11633",
 		"now_confrim": "55051",
+		"importedCase": null,
 		"ind": "02020"
 	},
 	{
@@ -637,6 +676,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "11477",
 		"now_confrim": "53371",
+		"importedCase": null,
 		"ind": "02021"
 	},
 	{
@@ -653,6 +693,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "10968",
 		"now_confrim": "51689",
+		"importedCase": null,
 		"ind": "02022"
 	},
 	{
@@ -669,6 +710,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "9915",
 		"now_confrim": "49910",
+		"importedCase": null,
 		"ind": "02023"
 	},
 	{
@@ -685,6 +727,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "9126",
 		"now_confrim": "47760",
+		"importedCase": null,
 		"ind": "02024"
 	},
 	{
@@ -701,6 +744,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "8752",
 		"now_confrim": "45697",
+		"importedCase": null,
 		"ind": "02025"
 	},
 	{
@@ -717,6 +761,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "8346",
 		"now_confrim": "43352",
+		"importedCase": null,
 		"ind": "02026"
 	},
 	{
@@ -733,6 +778,7 @@
 		"now_severe_cuts": "",
 		"now_severe": "7952",
 		"now_confrim": "40011",
+		"importedCase": null,
 		"ind": "02027"
 	},
 	{
@@ -741,14 +787,134 @@
 		"suspect": "1418",
 		"dead": "2838",
 		"heal": "39049",
-		"confirm_cuts": "",
 		"suspect_cuts": "",
-		"dead_cuts": "",
 		"heal_cuts": "",
-		"now_confrim": "37502",
-		"now_severe": "7664",
+		"dead_cuts": "",
+		"confirm_cuts": "",
 		"now_confrim_cuts": "",
 		"now_severe_cuts": "",
+		"now_severe": "7664",
+		"now_confrim": "37502",
+		"importedCase": null,
 		"ind": "02028"
+	},
+	{
+		"date": "02/29",
+		"confirm": "79968",
+		"suspect": "851",
+		"dead": "2873",
+		"heal": "41675",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "7365",
+		"now_confrim": "35420",
+		"importedCase": null,
+		"ind": "02029"
+	},
+	{
+		"date": "03/01",
+		"confirm": "80174",
+		"suspect": "715",
+		"dead": "2915",
+		"heal": "44518",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "7110",
+		"now_confrim": "32741",
+		"importedCase": null,
+		"ind": "03001"
+	},
+	{
+		"date": "03/02",
+		"confirm": "80302",
+		"suspect": "587",
+		"dead": "2946",
+		"heal": "47260",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "6806",
+		"now_confrim": "30096",
+		"importedCase": null,
+		"ind": "03002"
+	},
+	{
+		"date": "03/03",
+		"confirm": "80422",
+		"suspect": "520",
+		"dead": "2984",
+		"heal": "49914",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "6416",
+		"now_confrim": "27524",
+		"importedCase": null,
+		"ind": "03003"
+	},
+	{
+		"date": "03/04",
+		"confirm": "80565",
+		"suspect": "522",
+		"dead": "3015",
+		"heal": "52109",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "5952",
+		"now_confrim": "25441",
+		"importedCase": "20",
+		"ind": "03004"
+	},
+	{
+		"date": "03/05",
+		"confirm": "80710",
+		"suspect": "482",
+		"dead": "3045",
+		"heal": "53793",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "5737",
+		"now_confrim": "23872",
+		"importedCase": "36",
+		"ind": "03005"
+	},
+	{
+		"date": "03/06",
+		"confirm": "80813",
+		"suspect": "502",
+		"dead": "3073",
+		"heal": "55477",
+		"suspect_cuts": "",
+		"heal_cuts": "",
+		"dead_cuts": "",
+		"confirm_cuts": "",
+		"now_confrim_cuts": "",
+		"now_severe_cuts": "",
+		"now_severe": "5489",
+		"now_confrim": "22263",
+		"importedCase": "60",
+		"ind": "03006"
 	}
 ]

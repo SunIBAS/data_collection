@@ -76,7 +76,9 @@ function checkQianxiBaidu() {
                 for (let j in tFile[i].data.list) {
                     // todo
                     if (j in pFile[i].data.list) {
-                        if (tFile[i].data.list[j] === pFile[i].data.list[j]) {} else {
+                        if (tFile[i].data.list[j] === pFile[i].data.list[j]) {
+
+                        } else {
                             haveError = true;
                             console.log(`data ${i} in ${j} is diff`);
                         }

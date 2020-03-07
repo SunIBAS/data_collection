@@ -37,10 +37,10 @@ const formatDate = function(date,format) {
  *
  * endInToday 是否循环到当日就结束输出
  * */
-const getFromDay = function(year,month,day,format,endInToday,endYear,endMonth,endDate) {
+const getFromDay = function(year,month,day,format,endInToday,endYear,endMonth,endDate,dayLen) {
     const d = new Date();
     const today = new Date();
-    const oneDayMill = 1000 * 3600 * 24;
+    const oneDayMill = 1000 * 3600 * 24 * (dayLen ? dayLen : 1);
     endYear = parseInt(endYear);
     endMonth = parseInt(endMonth);
     endDate = parseInt(endDate);
