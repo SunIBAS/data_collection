@@ -123,9 +123,12 @@ const defaultHeader = {
 
 function DownloadFile(filePath,url,cb) {
     console.log(`to download file >>> ${filePath}`);
+    let {
+        reqMethod
+    } = getRequestMethodAndFormOption(url,{},'get');
     const downFile = (url) => {
         return new Promise(function (succ,fail) {
-            http.get(url,(resp) => {
+            reqMethod(url,(resp) => {
                 let data = [];
                 resp.on('data',(chunk) => {
                     data.push(chunk);
@@ -148,10 +151,22 @@ function DownloadFile(filePath,url,cb) {
         .then(cb);
 }
 
-const getString = function(obj) {
+const repFn = {
+    "/2%2f"(str) {
+        return str.replace(/\//g,'%2F');
+    },
+    "+2%2b"(str) {
+        return str.replace(/\+/g,'%2B');
+    },
+    "=2%3d"(str) {
+        return str.replace(/=/g,'%3D');
+    }
+};
+const getString = function(obj,rep) {
+    rep = rep || (a => a);
     let str = [];
     for (let i in obj) {
-        str.push(`${i}=${encodeURI(obj[i])}`);
+        str.push(`${i}=${rep(encodeURI(obj[i]))}`);
     }
     return str.join('&');
 };
@@ -184,5 +199,6 @@ module.exports = {
     get,
     getAdv,
     post,
-    DownloadFile
+    DownloadFile,
+    repFn
 };

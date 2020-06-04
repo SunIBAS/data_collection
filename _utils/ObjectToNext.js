@@ -55,7 +55,22 @@ const ArrayToNext = function(_arr,retryTime) {
         }
     }
 };
+const NumberNext = function(_start,_end) {
+    let start = _start;
+    let end = _end;
+    let cur = _start;
+    return {
+        next() {
+            if (cur > end) {
+                return false;
+            } else {
+                return cur++;
+            }
+        }
+    }
+};
 
 module.exports = {
-    ArrayToNext
+    ArrayToNext,
+    NumberNext
 };

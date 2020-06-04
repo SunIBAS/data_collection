@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- including ECharts file -->
+    <script src="https://cdn.bootcss.com/echarts/4.6.0/echarts.min.js"></script>
+    <style>
+        *{
+            border: none;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="button" style="width: 100vw;height: 50px;background: #ddc366;">
+    <select name="" id="sel_name" style="background: antiquewhite;height: 100%;width: 100px;font-size: larger;float: left;"></select>
+    <select name="" id="sel_date" style="background: antiquewhite;height: 100%;width: 200px;font-size: larger;float: left;"></select>
+    <button style="font-size: xx-large;height: 100%;background: black;color: white;" onclick="toDraw()">绘制</button>
+</div>
+<div id="main" style="width: 100vw;height:calc(100vh - 50px)"></div>
+<script type="text/javascript">
+    window.onload = function() {
+        (() => {
+            let zeros = [0,0,0,0,0,0,0,0];
+
+            let changeZeroLength = function(deta) {
+                if (zeros.length < deta) {
+                    for (;deta > zeros.length;deta--) {
+                        zeros.push(0);
+                    }
+                }
+            };
+            Number.prototype.toLength = function (len) {
+                return (this + '').toLength(len);
+            };
+            String.prototype.toLength = function (len) {
+                let n = this;
+                if (n.length < len) {
+                    let deta = len - (n + '').length;
+                    changeZeroLength(deta);
+                    return zeros.slice(0,deta).join('') + n;
+                } else {
+                    return n;
+                }
+            };
+        })();
+        const formatDate = function(date,format) {
+            const dear = {
+                'yyyyMMdd'(date) {
+                    return (date.getYear() + 1900) +
+                        (date.getMonth() + 1).toLength(2) +
+                        (date.getDate()).toLength(2);
+                },
+                'yyyy/MM/dd'(date) {
+                    return (date.getYear() + 1900) + '/' +
+                        (date.getMonth() + 1).toLength(2) + '/' +
+                        (date.getDate()).toLength(2);
+                },
+                'yMd'(date) {
+                    return (date.getYear() + 1900) + '' +
+                        (date.getMonth() + 1) + '' +
+                        (date.getDate());
+                },
+                'yyyy-MM-dd'(date) {
+                    return (date.getYear() + 1900) + '-' +
+                        (date.getMonth() + 1).toLength(2) + '-' +
+                        (date.getDate()).toLength(2);
+                },
+                'y-M-d'(date) {
+                    return (date.getYear() + 1900) + '-' +
+                        (date.getMonth() + 1) + '-' +
+                        (date.getDate());
+                }
+            };
+            if (format in dear) {
+                return dear[format](date);
+            } else {
+                return dear.yyyyMMdd(date);
+            }
+        };
+        /**
+         * format = "yyyyMMdd"  20200101    default
+         * format = "yMd"       202011
+         * format = "yyyy-MM-dd"2020-01-01
+         * format = "y-M-d"     2020-1-1
+         *
+         * endInToday 是否循环到当日就结束输出
+         * */
+        window.getFromDay = function(year,month,day,format,endInToday,endYear,endMonth,endDate,dayLen) {
+            const d = new Date();
+            const today = new Date();
+            const oneDayMill = 1000 * 3600 * 24 * (dayLen ? dayLen : 1);
+            endYear = parseInt(endYear);
+            endMonth = parseInt(endMonth);
+            endDate = parseInt(endDate);
+            if (!Number.isNaN(endYear) && !Number.isNaN(endMonth) && !Number.isNaN(endDate)) {
+                today.setYear(endYear);
+                today.setMonth(endMonth - 1);
+                today.setDate(endDate);
+            }
+            let ts = parseInt(formatDate(today,'yyyyMMdd'));
+            format = format || "yyyyMMdd";
+            d.setYear(year);
+            d.setMonth(month - 1);
+            d.setDate(day);
+            return function () {
+                let next = true;
+                let ds = parseInt(formatDate(d,'yyyyMMdd'));
+                if (ds > ts) {
+                    next = false;
+                }
+                if (next) {
+                    let str = formatDate(d,format);
+                    d.setTime(d.getTime() + oneDayMill);
+                    return str;
+                } else {
+                    return false;
+                }
+            }
+        };
+        let sel_name_type = [
+            "AU9995",
+            "AU9999",
+            "bak",
+            "人民币钯",
+            "人民币铂",
+            "人民币银",
+            "美元金(汇)",
+            "美元金(钞)",
+            "美元钯(汇)",
+            "美元钯(钞)",
+            "美元铂(汇)",
+            "美元铂(钞)",
+            "美元银(汇)",
+            "美元银(钞)"
+        ];
+        document.getElementById('sel_name')
+            .innerHTML = sel_name_type.map(__ => {
+            return `<option value="${__}">${__}</option>`
+        }).join('\r\n');
+        const gd = getFromDay(2020,3,12,'yyyy-MM-dd');
+        let all = [];
+        let d = gd();
+        do {
+            all.push(d);
+            d = gd();
+        } while (d);
+        document.getElementById('sel_date')
+            .innerHTML = all.map(__ => {
+            return `<option value="${__}">${__}</option>`
+        }).join('\r\n');
+    };
+    window.toDraw = function() {
+        fetch('api/data/' + document.getElementById('sel_name').value + "_" + document.getElementById('sel_date').value + '.json')
+            .then(_ => _.text())
+            .then(JSON.parse)
+            .then(draw);
+    };
+    window.draw = function (item) {
+        var myChart = echarts.init(document.getElementById('main'));
+        var ht = {
+            max: item[0].in,
+            min: item[0].out,
+        };
+        var dateList = [];
+        var valueListIn = [];
+        var valueListOut = [];
+        item.forEach(function (item) {
+            dateList.push(item.t);
+            valueListIn.push(item.in);
+            valueListOut.push(item.out);
+            let d = item.in - item.out;
+            if (item.in > ht.max) {
+                ht.max = item.in;
+            }
+            if (item.out < ht.min) {
+                ht.min = item.out;
+            }
+        });
+
+        option = {
+            title: {
+                text: '折线图堆叠'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    animation: false,
+                    label: {
+                        backgroundColor: '#ccc',
+                        borderColor: '#aaa',
+                        borderWidth: 1,
+                        shadowBlur: 0,
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+
+                        color: '#222'
+                    }
+                },
+            },
+            legend: {
+                data: ['in','out']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: dateList
+            },
+            yAxis: {
+                type: 'value',
+                min: ht.min,
+                max: ht.max
+            },
+            dataZoom: [
+                {
+                    type: 'inside',
+                    start: 50,
+                    end: 100,
+                    minValueSpan: 10
+                },
+                {
+                    show: true,
+                    type: 'slider',
+                    bottom: 60,
+                    start: 98,
+                    end: 100,
+                    minValueSpan: 10
+                }
+            ],
+            grid: [
+                {
+                    left: '10%',
+                    right: '8%',
+                    bottom: 150
+                }
+            ],
+            series: [
+                {
+                    name: 'in',
+                    type: 'line',
+                    stack: 'in',
+                    data: valueListIn
+                },
+                {
+                    name: 'out',
+                    type: 'line',
+                    stack: 'out',
+                    data: valueListOut
+                }
+            ]
+        };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option);
+    }
+</script>
+</body>
+</html>

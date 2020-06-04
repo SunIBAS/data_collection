@@ -7,6 +7,11 @@ const formatDate = function(date,format) {
                 (date.getMonth() + 1).toLength(2) +
                 (date.getDate()).toLength(2);
         },
+        'yyyy/MM/dd'(date) {
+            return (date.getYear() + 1900) + '/' +
+                (date.getMonth() + 1).toLength(2) + '/' +
+                (date.getDate()).toLength(2);
+        },
         'yMd'(date) {
             return (date.getYear() + 1900) + '' +
                 (date.getMonth() + 1) + '' +

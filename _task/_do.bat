@@ -7,6 +7,7 @@ mkdir e:\temp
 mkdir e:\temp1
 mkdir e:\temp2
 mkdir e:\temp_in_out
+mkdir e:\gjs
 
 node daily_task.js
 node checkDatas.js

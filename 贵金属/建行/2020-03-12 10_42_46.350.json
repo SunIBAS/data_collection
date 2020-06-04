@@ -1,0 +1,110 @@
+{
+  "SUCCESS": "true",
+  "MTTC": "",
+  "TXCODE": "SJP007",
+  "SYS_EVT_TRACE_ID": "1010114161583980967816335",
+  "PMAccGld_Bss_Prc_List": [
+    {
+      "PM_Txn_Vrty_Cd": "27",
+      "Tms": "2020-03-12 10:42:46.350",
+      "Cst_Buy_Prc": "507.94",
+      "Cst_Sell_Prc": "504.34"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "28",
+      "Tms": "2020-03-12 10:42:45.034",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "2267.69",
+      "MdlRate": "2258.69",
+      "Cst_Sell_Prc": "2249.69"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "29",
+      "Tms": "2020-03-12 10:42:45.034",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "2267.69",
+      "MdlRate": "2258.69",
+      "Cst_Sell_Prc": "2249.69"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "21",
+      "Tms": "2020-03-12 10:42:46.350",
+      "CcyCd": "156",
+      "Cst_Buy_Prc": "3.736",
+      "MdlRate": "3.726",
+      "Cst_Sell_Prc": "3.716"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "22",
+      "Tms": "2020-03-12 10:42:46.351",
+      "CcyCd": "156",
+      "Cst_Buy_Prc": "194.91",
+      "MdlRate": "193.83",
+      "Cst_Sell_Prc": "192.75"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "15",
+      "Tms": "2020-03-12 10:42:41.490",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "1638.65",
+      "MdlRate": "1637.87",
+      "Cst_Sell_Prc": "1637.09"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "17",
+      "Tms": "2020-03-12 10:42:45.967",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "16.67",
+      "MdlRate": "16.628",
+      "Cst_Sell_Prc": "16.586"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "19",
+      "Tms": "2020-03-12 10:42:46.314",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "868.57",
+      "MdlRate": "864.97",
+      "Cst_Sell_Prc": "861.37"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "16",
+      "Tms": "2020-03-12 10:42:41.490",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "1638.65",
+      "MdlRate": "1637.87",
+      "Cst_Sell_Prc": "1637.09"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "18",
+      "Tms": "2020-03-12 10:42:45.967",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "16.67",
+      "MdlRate": "16.628",
+      "Cst_Sell_Prc": "16.586"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "20",
+      "Tms": "2020-03-12 10:42:46.314",
+      "CcyCd": "840",
+      "Cst_Buy_Prc": "868.57",
+      "MdlRate": "864.97",
+      "Cst_Sell_Prc": "861.37"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "01",
+      "Tms": "2020-03-12 10:42:46.352",
+      "CcyCd": "156",
+      "Cst_Buy_Prc": "367.37",
+      "MdlRate": "367.12",
+      "Cst_Sell_Prc": "366.87"
+    },
+    {
+      "PM_Txn_Vrty_Cd": "02",
+      "Tms": "2020-03-12 10:42:46.351",
+      "CcyCd": "156",
+      "Cst_Buy_Prc": "367.17",
+      "MdlRate": "366.92",
+      "Cst_Sell_Prc": "366.67"
+    }
+  ]
+}

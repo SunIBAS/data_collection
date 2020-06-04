@@ -121,7 +121,8 @@ function callPreDay(cb) {
 function callDayRange(cb,y,m,d,ey,em,ed) {
     creatDayNext = OneDayOnly(y,m,d,ey,em,ed);
     totalCb = cb;
-    nextCode();
+    // nextCode();
+    nextDtType();
 }
 
 module.exports = {

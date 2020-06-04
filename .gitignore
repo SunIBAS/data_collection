@@ -3,6 +3,7 @@
 .idea/
 .venv/
 .env/
+tmp/
 2019-nCoV-Datas/.vscode/
 2019-nCoV-Datas/.idea/
 2019-nCoV-Datas/.venv/
