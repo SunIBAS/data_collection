@@ -21,6 +21,10 @@
 
 ### nasa.gpmdata
 
+需要安装 [nodejs](http://nodejs.cn/download/)，并且部分操作只有 windows 系统才能进行
+
+另外运行脚本方法是 ```node xxx.js``` ，请保持目录结构，因为 js 文件之间有依赖关系，除非专业人员
+
 下载遥感影像相关，目前有完整下载规范的是 土壤湿度 数据
 
 [土壤湿度数据下载详细说明](./nasa.gpmdata/GLDAS_NOAH025/Readme.md)
