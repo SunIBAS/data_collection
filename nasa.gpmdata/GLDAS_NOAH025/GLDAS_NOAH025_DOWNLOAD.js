@@ -34,5 +34,5 @@ for (;true;) {
 }
 console.log(out.length);
 
-fs.writeFileSync('batchGLDAS.bat',"chcp 65001\r\n" + out.join('\r\n'),'utf-8');
+fs.writeFileSync('download.bat',"chcp 65001\r\n" + out.join('\r\n'),'utf-8');
 

@@ -36,8 +36,8 @@ let ftype = ['nc4','nc4.xml'];
 let find = ['0000','0300','0600','0900','1200','1500','1800','2100'];
 
 // line:37
-// 将 结果 保存到 batchGLDAS.bat
-fs.writeFileSync('batchGLDAS.bat',"chcp 65001\r\n" + out.join('\r\n'),'utf-8');
+// 将 结果 保存到 download.bat
+fs.writeFileSync('download.bat',"chcp 65001\r\n" + out.join('\r\n'),'utf-8');
 ```
 
 ### 脚本2 ```GLDAS_NOAH025_FAIL_RETRY.js```
@@ -73,3 +73,8 @@ xxxxxxxxxxxxxxxxxxxx
 
 # 最后的说明
 
+[packageR](https://github.com/SunIBAS/data_collection/releases/tag/v1.0) 可以在项目的 release 中找到，并下载下来，这是一个 windows 应用，用到了 .Net Framework 4.7.2
+
+如果在文件中看到 ```nc4Path``` 和 ```currentNC4Path``` 可以理解为 ```nc4Path``` 是 bat 脚本中的变量，因为我是在一个电脑生成bat脚本后复制到另一台电脑上执行的，而 ```currentNC4Path``` 是当前我要生成 bat 脚本的电脑访问的 nc4 文件夹的路径
+
+![整体流程](./images/flow.jpg)

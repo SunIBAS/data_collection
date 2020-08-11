@@ -9,13 +9,19 @@
 
 ### 2019-nCoV-Datas
 
-> 这个数据是关于2019武汉新型冠状流感病毒的日变化数据
+这个数据是关于2019武汉新型冠状流感病毒的日变化数据
 
 ### qianxi.baidu
 
-> 这个是关于[百度迁徙](http://qianxi.baidu.com/)大数据的爬取
+这个是关于[百度迁徙](http://qianxi.baidu.com/)大数据的爬取
 
 ### data.stats.gov
 
-> 国家数据统计中心
+国家数据统计中心
+
+### nasa.gpmdata
+
+下载遥感影像相关，目前有完整下载规范的是 土壤湿度 数据
+
+[土壤湿度数据下载详细说明](./nasa.gpmdata/GLDAS_NOAH025/Readme.md)
 
