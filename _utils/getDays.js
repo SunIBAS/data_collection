@@ -101,7 +101,10 @@ const getDayBetween = function(dstr1,dstr2) {
         d1.setYear(dstr.substring(0,4));
         d1.setMonth(parseInt(dstr.substring(4,6)) - 1);
         d1.setDate(dstr.substring(6));
-        d1.setHours(12);
+        d1.setHours(0);
+        d1.setMinutes(0);
+        d1.setMilliseconds(0);
+        d1.setSeconds(0);
         return d1;
     }
     let d1 = strToDate(dstr1 + '');
