@@ -29,3 +29,4 @@
 
 [土壤湿度数据下载详细说明](./nasa.gpmdata/GLDAS_NOAH025/Readme.md)
 
+## [川普和拜登支持率](https://www.realclearpolitics.com/epolls/2020/president/us/general_election_trump_vs_biden-6247.html)
