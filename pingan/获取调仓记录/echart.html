@@ -35,6 +35,11 @@
         menu.className = 'active';
     }
 </script>
+<div style="position: absolute;z-index: 1000;padding: 5px;">
+    <button tar="byin">按买进</button>
+    <button tar="sout">按卖出</button>
+    <button tar="deta">按交易量</button>
+</div>
 <div id="main-container" style="top: 0px !important;">
     <div id="code-container">
         <div id="control-panel">
@@ -147,8 +152,23 @@
         jQuery('#main-container #code-container').css({width: codeWidth + '%',display: 'none'});
         jQuery('#main-container #h-handler').css({left: codeWidth + '%',display: 'none'});
         jQuery('#main-container .right-container').css({width: (100 - codeWidth) + '%',left: codeWidth + '%'});
-        fetch('/opt').then(_ => _.text()).then(d => {
+        fetch('/opt/in').then(_ => _.text()).then(d => {
             gb.editor.setValue(`option = ` + d);
+        });
+        $(`button[tar="byin"]`).on('click',function () {
+            fetch('/opt/in').then(_ => _.text()).then(d => {
+                gb.editor.setValue(`option = ` + d);
+            });
+        });
+        $(`button[tar="sout"]`).on('click',function () {
+            fetch('/opt/out').then(_ => _.text()).then(d => {
+                gb.editor.setValue(`option = ` + d);
+            });
+        });
+        $(`button[tar="deta"]`).on('click',function () {
+            fetch('/opt/deta').then(_ => _.text()).then(d => {
+                gb.editor.setValue(`option = ` + d);
+            });
         });
     }
 </script>

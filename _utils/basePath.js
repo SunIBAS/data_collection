@@ -7,7 +7,7 @@ let basePath = (() => {
 })();
 
 module.exports = {
-    tempPath: "g:\\temp",
+    tempPath: "D:\\Temp\\baidu",
     'root': basePath,
     'rootAdd'(subPath) { return path.join(basePath,subPath) },
     '2019nCovDatas': path.join(basePath,'2019-nCov-Datas'),

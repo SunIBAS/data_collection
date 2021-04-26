@@ -49,6 +49,7 @@ let nextCode = function (nd) {
             type: move_in
             date: ${nd}
             callback: ibas`;
+        console.log(reqUrl[reqUrlType] + getString(formatParam(str)));
         get(reqUrl[reqUrlType] + getString(formatParam(str)))
             .then(data => {
                 data = data.substring('ibas('.length,data.indexOf(')'));

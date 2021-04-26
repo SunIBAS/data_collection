@@ -262,3 +262,9 @@ int main(int argc, char* argv[]) {
 > 新疆的十二个师，来源于[百度知道](https://zhidao.baidu.com/question/589049747264743725.html)资料，以驻地为准，多个驻地以第一个为准
 
 ![](./pic/新疆十二师.jpg)
+
+## 20200116处理数据来源
+
+[中国卫生健康委员会](http://zs.kaipuyun.cn/s?token=7992&siteCode=N000001642&searchWord=新型冠状病毒肺炎疫情最新情况&button=)
+
+[上海卫生健康委员会](https://wsjkw.sh.gov.cn/)

@@ -20,7 +20,11 @@ let totalDatas = (new class{
         this.datas = [];
         this.saveWhenLength = 1;
         this.lastFile = null;
-        this.lastEchartOption = {};
+        this.lastEchartOption = {
+            in: {},
+            out: {},
+            deta: {},
+        };
         this.lastEchartOptionFile = null;
         this.uct = (_ => {
             let d = new Date();
@@ -38,10 +42,12 @@ let totalDatas = (new class{
             let txt = 'tmp/' + (new Date().getTime()) + '.txt';
             this.lastFile = txt;
             fs.writeFileSync(txt,JSON.stringify(tmp),'utf-8');
-            this.toEchart(JSON.parse(tmp));
+            this.toEchart(JSON.parse(tmp),'in');
+            this.toEchart(JSON.parse(tmp),'out');
+            this.toEchart(JSON.parse(tmp),'deta');
         }
     }
-    toEchart(data) {
+    toEchart(data,tar) {
         let yAxisData = [];
         let seriesA = [];
         let seriesB = [];
@@ -52,7 +58,7 @@ let totalDatas = (new class{
                 ...data[i],
                 code: i
             });
-            d = d.sort((a,b) => a.deta - b.deta);
+            d = d.sort((a,b) => a[tar] - b[tar]);
         }
         d.forEach(dd => {
             yAxisData.push(`${dd.name}(${dd.code})`);
@@ -138,7 +144,7 @@ let totalDatas = (new class{
         console.log(`最新图表文件为 ${txt}
         可以到下面网址查看效果
         http://localhost:${port}`);
-        this.lastEchartOption = option;
+        this.lastEchartOption[tar] = option;
         fs.writeFileSync(txt,`option = ` + JSON.stringify(option,'','\t'),'utf-8');
     }
 });
@@ -174,8 +180,12 @@ const resFile = (res,file) => {
 server.on('request',function (req,res) {
     if (req.url === '/save') {
         dearDatas(req,res);
-    }else if (req.url.startsWith("/opt")) {
-        res.end(JSON.stringify(totalDatas.lastEchartOption));
+    } else if (req.url.startsWith("/opt/in")) {
+        res.end(JSON.stringify(totalDatas.lastEchartOption.in));
+    } else if (req.url.startsWith("/opt/out")) {
+        res.end(JSON.stringify(totalDatas.lastEchartOption.out));
+    } else if (req.url.startsWith("/opt/deta")) {
+        res.end(JSON.stringify(totalDatas.lastEchartOption.deta));
     } else if (req.url.startsWith('/')) {
         resFile(res,'./echart.html');
     }

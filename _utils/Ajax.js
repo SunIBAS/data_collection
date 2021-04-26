@@ -49,7 +49,9 @@ const get = function(url,option) {
     return new Promise(function (scb,fcb) {
         getMethod(url,option,(resp) => {
             let data = '';
-            resp.on('data',(chunk) => data += chunk);
+            resp.on('data',(chunk) => {
+                data += chunk
+            });
             resp.on('end',() => {
                 scb(data);
             });
@@ -143,7 +145,7 @@ function DownloadFile(filePath,url,cb) {
             });
         });
     };
-    downFile(url)
+    return downFile(url)
         .then(data => {
             let ws = fs.createWriteStream(filePath);
             data.forEach(ws.write.bind(ws));

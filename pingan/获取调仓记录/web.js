@@ -98,6 +98,7 @@ var getEveryOver = function() {
     let save = function(data) {
         fetch("http://localhost:3308/save",{method:'post',body:JSON.stringify(data)});
     }
+    console.log(`保存时间 ${new Date()}`)
     save(allDear);
 }
 
@@ -111,5 +112,5 @@ setInterval(function () {
         // 周末
         return;
     }
-    start();
-})
+    getEvery();
+},1000 * 60)

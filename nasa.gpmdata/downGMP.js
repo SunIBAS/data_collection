@@ -5,7 +5,7 @@ const {
 require('../_utils/formatNumber');
 const fs = require('fs');
 
-let nd = getFromDay(2000,6,1,false,true);
+let nd = getFromDay(2020,4,1,false,true);
 let d;
 let out = [];
 let emailAndPassword = "我用的是谷歌的邮箱，默认密码就是邮箱";
