@@ -52,6 +52,9 @@ const ArrayToNext = function(_arr,retryTime) {
         },
         status() {
             console.log(`len = ${len} & point = ${point}`);
+        },
+        setPoint(_point) {
+            point = _point;
         }
     }
 };

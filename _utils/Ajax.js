@@ -108,7 +108,9 @@ const post = function (url,option,data) {
             });
         });
         if (data) {
-            let reqStr = qs.stringify(data);
+            let reqStr = data;
+            if (typeof data === 'object')
+                reqStr = qs.stringify(data);
             opt.headers = {
                 ...(opt.headers || {}),
                 'Content-Length': Buffer.byteLength(reqStr)

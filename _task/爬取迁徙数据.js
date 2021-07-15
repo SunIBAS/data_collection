@@ -13,16 +13,16 @@ function Task_QianxiBaidu(cb,year,month,day) {
     callDayRangeMoveIn(function () {
         console.log('moveout 开始执行');
         callDayRangeMoveOut(function () {
-            // autoRun(function () {
-            //     // cb();
-            //     autoRunCNCXQD(cb);
-            // });
-            cb()
+            autoRun(function () {
+                cb();
+                autoRunCNCXQD(cb);
+            });
+            // cb()
         },year,month,day,year,month,day)
     },year,month,day,year,month,day);
 }
 
-let nd = getFromDay(2020,10,2,true);
+let nd = getFromDay(2021,5,1,true);
 let d = nd();
 
 function next() {

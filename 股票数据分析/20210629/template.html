@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./../../_utils/echart/echarts.min.js"></script>
+    <script src="./../../_utils/jquery.1.12.3.min.js"></script>
+    <script src="./../../_utils/layer/layer.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+        select {
+            outline: none;
+            width: 100%;
+        }
+        button {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<div style="width: 100vw;height: 200px">
+    <button onclick="clearEchart()">清空</button>
+    <button onclick="openLayer()">修改</button>
+    <div id="title"></div>
+</div>
+<div style="display: none;" id="form">
+    <table style="width: 100%;text-align: center;">
+        <tbody>
+        <tr>
+            <td>基金</td>
+            <td id="form_jj"></td>
+        </tr>
+        <tr>
+            <td>节日</td>
+            <td id="form_jr"></td>
+        </tr>
+        <tr>
+            <td>方向</td>
+            <td id="form_dir">
+                <select id="">
+                    <option value="before">节前</option>
+                    <option value="after">节后</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align: left;">
+                <button id="drawBtn">绘制</button>
+                <button id="drawNextBtn">下一个</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div style="width: 100vw;height: calc(100vh - 200px);" id="ec"></div>
+<script>
+    let ec = null;
+    window.allDatas = {};
+    window.allJJR = [];
+    window.allJiJinName = [];
+    window.nexter = [];
+    fetch('./an.json').then(_ => _.json()).then(ret => {
+        window.allDatas = ret;
+        let form_jr = document.getElementById('form_jr');
+        let form_jr_innerHTML = `<select>`;
+        for (let i in ret) {
+            ret[i].before.forEach(d => {
+                if (!window.allJJR.includes(d.festival)) {
+                    window.allJJR.push(d.festival);
+                    form_jr_innerHTML += `<option value="${d.festival}">${d.festival}</option>`;
+                }
+            });
+            break;
+        }
+        form_jr_innerHTML += '</select>';
+        form_jr.innerHTML = form_jr_innerHTML;
+        let form_jj = document.getElementById('form_jj');
+        let form_jj_innerHTML = `<select>`;
+        for (let i in ret) {
+            window.allJiJinName.push({
+                code: i,
+                name: ret[i].name
+            });
+            form_jj_innerHTML += `<option value="${i}">${ret[i].name}</option>`;
+        }
+        form_jj_innerHTML += '</select>';
+        form_jj.innerHTML = form_jj_innerHTML;
+        window.allJiJinName.forEach(jj => {
+            window.allJJR.forEach(jr => {
+                window.nexter.push(`${jj.code}#${jr}#before`);
+                window.nexter.push(`${jj.code}#${jr}#after`);
+            });
+        });
+    });
+    /*定义按钮动作开始*/
+    window.clearEchart = function() {
+        (ec || {setOption() {}}).setOption({},true);
+    };
+    window.openLayer = function() {
+        layer.open({
+            type: 1,
+            shade: 0,
+            offset: 'rt',
+            area: ['600px', '180px'],
+            content: jQuery('#form'),
+        });
+    };
+    /*定义按钮动作结束*/
+    window.onresize = function() {
+        (ec || {resize(){}}).resize();
+    }
+    window.onload = function() {
+        jQuery('#drawBtn').on('click',function () {
+            let jj = jQuery('#form_jj select').val();
+            let jr = jQuery('#form_jr select').val();
+            let dir = jQuery('#form_dir select').val();
+            setOption({jj,jr,dir});
+        });
+        jQuery('#drawNextBtn').on('click',function () {
+            let jj = jQuery('#form_jj select').val();
+            let jr = jQuery('#form_jr select').val();
+            let dir = jQuery('#form_dir select').val();
+            let ind = window.nexter.indexOf(`${jj}#${jr}#${dir}`);
+            if (ind === window.nexter.length - 1) {
+                ind = 0;
+            } else {
+                ind++;
+            }
+            let setting = window.nexter[ind].split('#');
+            jQuery('#form_jj select').val(setting[0]);
+            jQuery('#form_jr select').val(setting[1]);
+            jQuery('#form_dir select').val(setting[2]);
+            setOption({jj: setting[0],jr: setting[1],dir: setting[2]});
+        });
+        ec = echarts.init(document.getElementById('ec'));
+    }
+
+    // 将列表转化为 0-1
+    function list2One(list) {
+        let max = list[0];
+        let min = list[0];
+        list.forEach(l => {
+            max = max > l ? max : l;
+            min = min < l ? min : l;
+        });
+        let deta = max - min;
+        return list.map(_ => (_ - min) / deta);
+    }
+    function setOption({jj,jr,dir}) {
+        jQuery('#title').text(`关于【${allDatas[jj].name}】在【${jr}】【${dir === 'before' ? '前' : '后'}】的表现`);
+        let option = {
+            // title: {
+            //     text: `关于【${allDatas[jj].name}】在【${jr}】【${dir === 'before' ? '前' : '后'}】的表现`
+            // },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: []
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: []
+            },
+            yAxis: {
+                type: 'value',
+                max: 0,
+                min: 1
+            },
+            series: []
+        };
+        let len = 0;
+        allDatas[jj][dir].filter(_ => _.festival === jr).forEach(data => {
+            option.legend.data.push(data.festival + data.begin);
+            option.series.push({
+                name: data.festival + data.begin,
+                // type: 'line',
+                type: 'scatter',
+                symbol: 'triangle',
+                symbolSize: 20,
+                data: list2One(data.data.map(_ => +_)),
+            });
+            len = data.data.length > len ? data.data.length : len;
+        });
+        for (let i = 0;i < len;i++) {
+            option.xAxis.data.push(i);
+        }
+        ec.setOption(option,true);
+    }
+</script>
+</body>
+</html>
