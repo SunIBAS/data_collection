@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+  <script src="./../../_utils/echart/echarts.min.js"></script>
+</head>
+<body>
+<div>
+    选择曲线 <select id="select"></select>
+</div>
+<div style="width: 100vw;height: 90vh;" id="ec"></div>
+<script>
+    window.ec = null;
+    window.select = null;
+    window.all = null;
+    window.onload = function() {
+        window.ec = echarts.init(document.getElementById('ec'));
+        window.select = document.getElementById('select');
+        window.select.onchange = function() {
+            window.ec.setOption(all[this.value].opt,true);
+        };
+        fetch('./datas.json')
+        .then(_ => _.json())
+        .then(all => {
+            window.all = all;
+            window.select.innerHTML = all.map((a,ind) => {
+                return `<option value="${ind}">${a.name}</option>`;
+            }).join('\r\n');
+            window.ec.setOption(all['0'].opt,true);
+        });
+    }
+</script>
+</body>
+</html>

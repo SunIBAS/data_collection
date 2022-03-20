@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<textarea id="conclusion" style="width: 90vw;" rows="4"></textarea>
+<textarea id="detail" style="width: 90vw;" rows="4"></textarea>
+
+
+
+<textarea id="result" style="width: 90vw;" rows="20"></textarea>
+<script>
+    let resultJson = {};
+    let result = document.getElementById('result');
+    function toUpdateResult(info,tar) {
+        resultJson[tar] = info;
+        result.value = JSON.stringify(resultJson,'','\t');
+    }
+    let conclusion = document.getElementById('conclusion');
+    let detail = document.getElementById('detail');
+    conclusion.onchange = function () {
+        let a = this.value;
+        let info = {
+            日期: a.match(/([0-9]+月[0-9]+日)/)[1],
+            新增本土确诊: -1, // newAdd[1],
+            新增本土无症状: -1, // newAddNull ? newAddNull[1] : 0,
+            新增境外输入确诊: -1, // newAddOut[1],
+            新增境外输入无症状: -1, // newAddOutNull ? newAddOutNull[1] : 0,
+        };
+        let allNew = a.match(/新增([0-9]+)例本土确诊病例和([0-9]+)例无症状感染者/)
+        if (!allNew) {
+            let newAdd = a.match(/新增([0-9]+)例本土确诊病例/);
+            let newAddNull = a.match(/([0-9]+)例本土无症状感染者/);
+            info.新增本土确诊 = newAdd ? newAdd[1] : 0;
+            info.新增本土无症状 = newAddNull ? newAddNull[1] : 0;
+        } else {
+            info.新增本土确诊 = allNew[1];
+            info.新增本土无症状 = allNew[2];
+        }
+        let allAddOut = a.match(/新增[境]{0,1}[外]{0,1}[输]{0,1}[入]{0,1}([0-9]+)例[境]{0,1}[外]{0,1}[输]{0,1}[入]{0,1}确诊病例和([0-9]+)例无症状感染者/)
+        if (!allAddOut) {
+            let newAddOut = a.match(/([0-9]+)例境外输入确诊病例/);
+            let newAddOutNull = a.match(/([0-9]+)例[境]{0,2}[外]{0,2}输入无症状感染者/);
+            info.新增境外输入确诊 = newAddOut ? newAddOut[1] : 0;
+            info.新增境外输入无症状 = newAddOutNull ? newAddOutNull[1] : 0;
+        } else {
+            info.新增境外输入确诊 = allAddOut[1];
+            info.新增境外输入无症状 = allAddOut[2];
+        }
+
+        toUpdateResult(info,'conclusion');
+    };
+    function getType(text) {
+        if (text.indexOf('重点区域筛查') !== -1) {
+            return `重点区域筛查`;
+        } else if (text.indexOf('重点人群筛查')) {
+            return `重点人群筛查`;
+        } else if (text.indexOf('社区筛查')) {
+            return `社区筛查`;
+        } else {
+            throw new Error('未知类型');
+        }
+    }
+    detail.onchange = function () {
+        let infos = this.value.split('\n').map(_ => _.trim()).filter(_ => _);
+        let out = [];
+        for (let i = 0;i < infos.length;i += 2) {
+            if (infos[i].indexOf('至') !== -1) {
+                let ft = infos[i].match(/病例([0-9]+)至([0-9]+)/);
+                let from = +ft[1];
+                let to = +ft[2];
+                let ifo = infos[i + 1].split('，');
+                for (let i = from;i <= to;i++) {
+                    out.push({
+                        sex: '未知',
+                        age: '未知',
+                        address: ifo[0],
+                        type: getType(infos[i + 1])
+                    });
+                }
+            } else {
+                let ifo = infos[i + 1].split('，');
+                // let otherInfo = '';
+                let address = ifo[2];
+                if (ifo[2].indexOf('人员') !== -1) {
+                    address = ifo[3];
+                    // otherInfo = ifo[2];
+                }
+                let theClass = '';
+                if (infos[i + 1].indexOf('诊断为') !== -1) {
+                    if (infos[i + 1].indexOf('无症状') !== -1) {
+                        theClass = '无症状';
+                    } else if (infos[i + 1].indexOf('确诊病例') !== -1) {
+                        theClass = '确诊';
+                    }
+                }
+                out.push({
+                    sex: ifo[0],
+                    age: ifo[1],
+                    address,
+                    type: ifo[3] ? getType(ifo[3]) : '',
+                    otherInfo: infos[i + 1],
+                    theClass
+                });
+            }
+        }
+        toUpdateResult(out,'detail');
+    }
+
+</script>
+</body>
+</html>

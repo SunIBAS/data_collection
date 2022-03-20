@@ -17,7 +17,18 @@ let tasks = new class{
     constructor() {
         this.tasks = [];
     }
-    next() {
+    next(name) {
+        if (name) {
+            let ind = 0;
+            while (this.task.length) {
+                this.tasks.pop();
+                if (codes[ind].f14 === name) {
+                    console.log(`last pop is ${codes[ind].f14}`);
+                    break;
+                }
+                ind++;
+            }
+        }
         if (this.tasks.length) {
             this.tasks.pop()();
         } else {
