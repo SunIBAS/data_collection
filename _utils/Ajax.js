@@ -4,6 +4,8 @@ const http = require('http');
 const qs = require("querystring");
 const URL = require('url');
 
+// http.request()
+
 const getRequestMethodAndFormOption = function (url,option,method) {
     let surl = url.split('/').filter(_ => _);
     let reqType = 'http';
